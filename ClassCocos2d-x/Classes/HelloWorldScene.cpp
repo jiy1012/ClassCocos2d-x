@@ -34,46 +34,93 @@ bool HelloWorld::init()
     //    you may modify it.
 
     // add a "close" icon to exit the progress. it's an autorelease object
-    CCMenuItemImage *pCloseItem = CCMenuItemImage::create(
-                                        "CloseNormal.png",
-                                        "CloseSelected.png",
-                                        this,
-                                        menu_selector(HelloWorld::menuCloseCallback) );
-    pCloseItem->setPosition( ccp(CCDirector::sharedDirector()->getWinSize().width - 20, 20) );
 
-    // create menu, it's an autorelease object
-    CCMenu* pMenu = CCMenu::create(pCloseItem, NULL);
-    pMenu->setPosition( CCPointZero );
-    this->addChild(pMenu, 1);
 
     /////////////////////////////
     // 3. add your codes below...
 
-    // add a label shows "Hello World"
-    // create and initialize a label
-    CCLabelTTF* pLabel = CCLabelTTF::create("Hello World", "Thonburi", 34);
-
     // ask director the window size
     CCSize size = CCDirector::sharedDirector()->getWinSize();
 
-    // position the label on the center of the screen
-    pLabel->setPosition( ccp(size.width / 2, size.height - 20) );
-
-    // add the label as a child to this layer
-    this->addChild(pLabel, 1);
 
     // add "HelloWorld" splash screen"
     CCSprite* pSprite = CCSprite::create("HelloWorld.png");
 
     // position the sprite on the center of the screen
     pSprite->setPosition( ccp(size.width/2, size.height/2) );
+    
 
+    CCFadeOut* pFadeout = CCFadeOut::create(1.0f);
+
+    CCFiniteTimeAction* pSequence = CCSequence::create(pFadeout,
+                                                      CCCallFuncN::create(this,callfuncN_selector(HelloWorld::logoDisplayCallback)),
+                                                        NULL);
+    pSprite->runAction(pSequence);
     // add the sprite as a child to this layer
     this->addChild(pSprite, 0);
-    
     return true;
 }
 
+
+void HelloWorld::logoDisplayCallback(CCNode* pNode)
+{
+    CCLOG("%s","logoDisplayCallback pNode");
+    CCSize size = CCDirector::sharedDirector()->getWinSize();
+    CCSprite* pMydraw = CCSprite::create("mydraw.jpg");
+    pMydraw->setPosition(ccp(size.width/2, size.height/2));
+    
+    CCFadeIn* pFadein = CCFadeIn::create(3.0f);
+    CCDelayTime* pDelay = CCDelayTime::create(1.0f);
+    CCFadeOut* pFadeout = CCFadeOut::create(3.0f);
+    
+    CCFiniteTimeAction* pSequence = CCSequence::create(pFadein,
+                                                       pDelay,
+                                                       pFadeout,
+                                                       CCCallFuncN::create(this,callfuncN_selector(HelloWorld::sloganDisplayCallback)),
+                                                       NULL);
+    
+    pMydraw->runAction(pSequence);
+    this->addChild(pMydraw);
+    
+}
+
+void HelloWorld::sloganDisplayCallback(CCNode* pNode)
+{
+    CCLOG("%s","sloganDisplayCallback");
+    CCLabelTTF* pLabel = CCLabelTTF::create("四火品质坚如磐石", "", 50);
+
+    CCSize size = CCDirector::sharedDirector()->getWinSize();
+    pLabel->setPosition(ccp(size.width/2, size.height/2));
+
+    CCFadeIn* pFadein = CCFadeIn::create(3.0f);
+    CCFadeOut* pFadeout = CCFadeOut::create(3.0f);
+    CCFiniteTimeAction* pSequence = CCSequence::create(pFadein,
+                                                       pFadeout,
+                                                       CCCallFuncN::create(this,callfuncN_selector(HelloWorld::titleDisplayCallback)),
+                                                       NULL);
+    pLabel->runAction(pSequence);
+    this->addChild(pLabel);
+}
+
+void HelloWorld::titleDisplayCallback(CCNode* pNode)
+{
+    CCLOG("%s","titleDisplayCallback");
+    CCMenuItemImage *pCloseItem = CCMenuItemImage::create(
+                                        "CloseNormal.png",
+                                        "CloseSelected.png",
+                                        this,
+                                        menu_selector(HelloWorld::menuCloseCallback) );
+    pCloseItem->setPosition( ccp(CCDirector::sharedDirector()->getWinSize().width - 20, 20) );
+    CCMenu* pMenu = CCMenu::create(pCloseItem, NULL);
+    pMenu->setPosition( CCPointZero );
+    this->addChild(pMenu, 1);
+    
+    CCLabelTTF* pLabel = CCLabelTTF::create("我是标题", "Thonburi", 50);
+    CCSize size = CCDirector::sharedDirector()->getWinSize();
+    pLabel->setPosition( ccp(size.width / 2, size.height/2) );
+    this->addChild(pLabel, 1);
+    
+}
 void HelloWorld::menuCloseCallback(CCObject* pSender)
 {
     CCDirector::sharedDirector()->end();

@@ -14,7 +14,11 @@ public:
     
     // a selector callback
     void menuCloseCallback(CCObject* pSender);
-
+    
+    void sloganDisplayCallback(CCNode* pNode);
+    void logoDisplayCallback(CCNode* pNode);
+    
+    void titleDisplayCallback(CCNode* pNode);
     // preprocessor macro for "static create()" constructor ( node() deprecated )
     CREATE_FUNC(HelloWorld);
 };

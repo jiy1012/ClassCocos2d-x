@@ -280,6 +280,7 @@
 		D664A70F18E8377100D77821 /* libwebsockets.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D664A70E18E8377100D77821 /* libwebsockets.a */; };
 		D664A71518E8377100D77821 /* AppDelegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D664A71418E8377100D77821 /* AppDelegate.cpp */; };
 		D664A71818E8377100D77821 /* HelloWorldScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D664A71718E8377100D77821 /* HelloWorldScene.cpp */; };
+		D6B4D49E18E86D3B00D9B436 /* mydraw.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D6B4D49D18E86D3B00D9B436 /* mydraw.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -873,6 +874,7 @@
 		D664A71418E8377100D77821 /* AppDelegate.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = AppDelegate.cpp; path = Classes/AppDelegate.cpp; sourceTree = "<group>"; };
 		D664A71618E8377100D77821 /* HelloWorldScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = HelloWorldScene.h; path = Classes/HelloWorldScene.h; sourceTree = "<group>"; };
 		D664A71718E8377100D77821 /* HelloWorldScene.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = HelloWorldScene.cpp; path = Classes/HelloWorldScene.cpp; sourceTree = "<group>"; };
+		D6B4D49D18E86D3B00D9B436 /* mydraw.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = mydraw.jpg; path = Resources/mydraw.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -944,6 +946,7 @@
 		D664A38218E8376B00D77821 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				D6B4D49D18E86D3B00D9B436 /* mydraw.jpg */,
 				D664A38318E8376B00D77821 /* CloseNormal.png */,
 				D664A38518E8376B00D77821 /* CloseSelected.png */,
 				D664A38718E8376B00D77821 /* Default.png */,
@@ -2164,6 +2167,7 @@
 				D664A38618E8376B00D77821 /* CloseSelected.png in Resources */,
 				D664A39618E8376B00D77821 /* Icon@2x.png in Resources */,
 				D664A5AB18E8376F00D77821 /* project.pbxproj in Resources */,
+				D6B4D49E18E86D3B00D9B436 /* mydraw.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2564,6 +2568,7 @@
 				D664A71D18E8377100D77821 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
