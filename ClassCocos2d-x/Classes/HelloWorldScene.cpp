@@ -86,7 +86,7 @@ void HelloWorld::logoDisplayCallback(CCNode* pNode)
 void HelloWorld::sloganDisplayCallback(CCNode* pNode)
 {
     CCLOG("%s","sloganDisplayCallback");
-    CCLabelTTF* pLabel = CCLabelTTF::create("四火品质坚如磐石", "", 50);
+    CCLabelTTF* pLabel = CCLabelTTF::create("四火品质 坚如磐石", "", 50);
 
     pLabel->setPosition(ccp(winSize.width/2, winSize.height/2));
 
@@ -103,18 +103,19 @@ void HelloWorld::sloganDisplayCallback(CCNode* pNode)
 void HelloWorld::titleDisplayCallback(CCNode* pNode)
 {
     CCLOG("%s","titleDisplayCallback");
-    CCMenuItemImage *pCloseItem = CCMenuItemImage::create(
-                                        "CloseNormal.png",
-                                        "CloseSelected.png",
-                                        this,
-                                        menu_selector(HelloWorld::menuCloseCallback) );
-    pCloseItem->setPosition( ccp(winSize.width - 20, 20) );
-    CCMenu* pMenu = CCMenu::create(pCloseItem, NULL);
+    
+    CCMenuItemImage* pStratButton = CCMenuItemImage::create("startButton.png", "startButtonSelected.png", this, menu_selector(HelloWorld::menuCloseCallback));
+    pStratButton->setPosition(ccp(winSize.width/2, winSize.height/3));
+    
+    CCMenuItemImage* pExitButton = CCMenuItemImage::create("exitButton.png", "exitButtonSelected.png", this, menu_selector(HelloWorld::menuCloseCallback));
+    pExitButton->setPosition(ccp(winSize.width/2, winSize.height/5));
+
+    CCMenu* pMenu = CCMenu::create(pStratButton,pExitButton,NULL);
     pMenu->setPosition( CCPointZero );
     this->addChild(pMenu, 1);
     
     CCLabelTTF* pLabel = CCLabelTTF::create("大战", "Thonburi", 50);
-    pLabel->setPosition( ccp(winSize.width/2, winSize.height*2/3) );
+    pLabel->setPosition( ccp(winSize.width/2, winSize.height*3/4) );
     this->addChild(pLabel, 1);
     
 }

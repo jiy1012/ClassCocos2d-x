@@ -276,6 +276,10 @@
 		D664A70F18E8377100D77821 /* libwebsockets.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D664A70E18E8377100D77821 /* libwebsockets.a */; };
 		D664A71518E8377100D77821 /* AppDelegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D664A71418E8377100D77821 /* AppDelegate.cpp */; };
 		D664A71818E8377100D77821 /* HelloWorldScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D664A71718E8377100D77821 /* HelloWorldScene.cpp */; };
+		D6A34D6618F1736600985BD7 /* exitButton.png in Resources */ = {isa = PBXBuildFile; fileRef = D6A34D6218F1736600985BD7 /* exitButton.png */; };
+		D6A34D6718F1736600985BD7 /* exitButtonSelected.png in Resources */ = {isa = PBXBuildFile; fileRef = D6A34D6318F1736600985BD7 /* exitButtonSelected.png */; };
+		D6A34D6818F1736600985BD7 /* startButton.png in Resources */ = {isa = PBXBuildFile; fileRef = D6A34D6418F1736600985BD7 /* startButton.png */; };
+		D6A34D6918F1736600985BD7 /* startButtonSelected.png in Resources */ = {isa = PBXBuildFile; fileRef = D6A34D6518F1736600985BD7 /* startButtonSelected.png */; };
 		D6CF961718F10D9E00604B62 /* CloseNormal.png in Resources */ = {isa = PBXBuildFile; fileRef = D6CF961218F10D9E00604B62 /* CloseNormal.png */; };
 		D6CF961818F10D9E00604B62 /* CloseSelected.png in Resources */ = {isa = PBXBuildFile; fileRef = D6CF961318F10D9E00604B62 /* CloseSelected.png */; };
 		D6CF961918F10D9E00604B62 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = D6CF961418F10D9E00604B62 /* Default.png */; };
@@ -870,6 +874,10 @@
 		D664A71418E8377100D77821 /* AppDelegate.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = AppDelegate.cpp; path = Classes/AppDelegate.cpp; sourceTree = "<group>"; };
 		D664A71618E8377100D77821 /* HelloWorldScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = HelloWorldScene.h; path = Classes/HelloWorldScene.h; sourceTree = "<group>"; };
 		D664A71718E8377100D77821 /* HelloWorldScene.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = HelloWorldScene.cpp; path = Classes/HelloWorldScene.cpp; sourceTree = "<group>"; };
+		D6A34D6218F1736600985BD7 /* exitButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = exitButton.png; sourceTree = "<group>"; };
+		D6A34D6318F1736600985BD7 /* exitButtonSelected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = exitButtonSelected.png; sourceTree = "<group>"; };
+		D6A34D6418F1736600985BD7 /* startButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = startButton.png; sourceTree = "<group>"; };
+		D6A34D6518F1736600985BD7 /* startButtonSelected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = startButtonSelected.png; sourceTree = "<group>"; };
 		D6CF961218F10D9E00604B62 /* CloseNormal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CloseNormal.png; sourceTree = "<group>"; };
 		D6CF961318F10D9E00604B62 /* CloseSelected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CloseSelected.png; sourceTree = "<group>"; };
 		D6CF961418F10D9E00604B62 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
@@ -2103,6 +2111,10 @@
 		D6CF961118F10D9E00604B62 /* image */ = {
 			isa = PBXGroup;
 			children = (
+				D6A34D6218F1736600985BD7 /* exitButton.png */,
+				D6A34D6318F1736600985BD7 /* exitButtonSelected.png */,
+				D6A34D6418F1736600985BD7 /* startButton.png */,
+				D6A34D6518F1736600985BD7 /* startButtonSelected.png */,
 				D6CF961218F10D9E00604B62 /* CloseNormal.png */,
 				D6CF961318F10D9E00604B62 /* CloseSelected.png */,
 				D6CF961418F10D9E00604B62 /* Default.png */,
@@ -2166,11 +2178,15 @@
 				D664A39418E8376B00D77821 /* Icon.png in Resources */,
 				D6CF961818F10D9E00604B62 /* CloseSelected.png in Resources */,
 				D664A43718E8376C00D77821 /* ChangeLog in Resources */,
+				D6A34D6618F1736600985BD7 /* exitButton.png in Resources */,
 				D664A39018E8376B00D77821 /* Icon-Small.png in Resources */,
 				D6CF961A18F10D9E00604B62 /* HelloWorld.png in Resources */,
+				D6A34D6818F1736600985BD7 /* startButton.png in Resources */,
 				D664A38C18E8376B00D77821 /* Icon-72.png in Resources */,
 				D664A38E18E8376B00D77821 /* Icon-Small-50.png in Resources */,
+				D6A34D6718F1736600985BD7 /* exitButtonSelected.png in Resources */,
 				D664A39818E8376B00D77821 /* iTunesArtwork in Resources */,
+				D6A34D6918F1736600985BD7 /* startButtonSelected.png in Resources */,
 				D6CF961918F10D9E00604B62 /* Default.png in Resources */,
 				D664A39218E8376B00D77821 /* Icon-Small@2x.png in Resources */,
 				D6CF961718F10D9E00604B62 /* CloseNormal.png in Resources */,
