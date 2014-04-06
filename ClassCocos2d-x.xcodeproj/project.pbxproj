@@ -15,10 +15,6 @@
 		D664A37C18E8376B00D77821 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D664A37B18E8376B00D77821 /* UIKit.framework */; };
 		D664A37E18E8376B00D77821 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D664A37D18E8376B00D77821 /* Foundation.framework */; };
 		D664A38018E8376B00D77821 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D664A37F18E8376B00D77821 /* CoreGraphics.framework */; };
-		D664A38418E8376B00D77821 /* CloseNormal.png in Resources */ = {isa = PBXBuildFile; fileRef = D664A38318E8376B00D77821 /* CloseNormal.png */; };
-		D664A38618E8376B00D77821 /* CloseSelected.png in Resources */ = {isa = PBXBuildFile; fileRef = D664A38518E8376B00D77821 /* CloseSelected.png */; };
-		D664A38818E8376B00D77821 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = D664A38718E8376B00D77821 /* Default.png */; };
-		D664A38A18E8376B00D77821 /* HelloWorld.png in Resources */ = {isa = PBXBuildFile; fileRef = D664A38918E8376B00D77821 /* HelloWorld.png */; };
 		D664A38C18E8376B00D77821 /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = D664A38B18E8376B00D77821 /* Icon-72.png */; };
 		D664A38E18E8376B00D77821 /* Icon-Small-50.png in Resources */ = {isa = PBXBuildFile; fileRef = D664A38D18E8376B00D77821 /* Icon-Small-50.png */; };
 		D664A39018E8376B00D77821 /* Icon-Small.png in Resources */ = {isa = PBXBuildFile; fileRef = D664A38F18E8376B00D77821 /* Icon-Small.png */; };
@@ -280,7 +276,11 @@
 		D664A70F18E8377100D77821 /* libwebsockets.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D664A70E18E8377100D77821 /* libwebsockets.a */; };
 		D664A71518E8377100D77821 /* AppDelegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D664A71418E8377100D77821 /* AppDelegate.cpp */; };
 		D664A71818E8377100D77821 /* HelloWorldScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D664A71718E8377100D77821 /* HelloWorldScene.cpp */; };
-		D6B4D49E18E86D3B00D9B436 /* mydraw.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D6B4D49D18E86D3B00D9B436 /* mydraw.jpg */; };
+		D6CF961718F10D9E00604B62 /* CloseNormal.png in Resources */ = {isa = PBXBuildFile; fileRef = D6CF961218F10D9E00604B62 /* CloseNormal.png */; };
+		D6CF961818F10D9E00604B62 /* CloseSelected.png in Resources */ = {isa = PBXBuildFile; fileRef = D6CF961318F10D9E00604B62 /* CloseSelected.png */; };
+		D6CF961918F10D9E00604B62 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = D6CF961418F10D9E00604B62 /* Default.png */; };
+		D6CF961A18F10D9E00604B62 /* HelloWorld.png in Resources */ = {isa = PBXBuildFile; fileRef = D6CF961518F10D9E00604B62 /* HelloWorld.png */; };
+		D6CF961B18F10D9E00604B62 /* mydraw.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D6CF961618F10D9E00604B62 /* mydraw.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -293,10 +293,6 @@
 		D664A37B18E8376B00D77821 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		D664A37D18E8376B00D77821 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D664A37F18E8376B00D77821 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		D664A38318E8376B00D77821 /* CloseNormal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = CloseNormal.png; path = Resources/CloseNormal.png; sourceTree = "<group>"; };
-		D664A38518E8376B00D77821 /* CloseSelected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = CloseSelected.png; path = Resources/CloseSelected.png; sourceTree = "<group>"; };
-		D664A38718E8376B00D77821 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = Resources/Default.png; sourceTree = "<group>"; };
-		D664A38918E8376B00D77821 /* HelloWorld.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = HelloWorld.png; path = Resources/HelloWorld.png; sourceTree = "<group>"; };
 		D664A38B18E8376B00D77821 /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-72.png"; path = "Resources/Icon-72.png"; sourceTree = "<group>"; };
 		D664A38D18E8376B00D77821 /* Icon-Small-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-Small-50.png"; path = "Resources/Icon-Small-50.png"; sourceTree = "<group>"; };
 		D664A38F18E8376B00D77821 /* Icon-Small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-Small.png"; path = "Resources/Icon-Small.png"; sourceTree = "<group>"; };
@@ -874,7 +870,11 @@
 		D664A71418E8377100D77821 /* AppDelegate.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = AppDelegate.cpp; path = Classes/AppDelegate.cpp; sourceTree = "<group>"; };
 		D664A71618E8377100D77821 /* HelloWorldScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = HelloWorldScene.h; path = Classes/HelloWorldScene.h; sourceTree = "<group>"; };
 		D664A71718E8377100D77821 /* HelloWorldScene.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = HelloWorldScene.cpp; path = Classes/HelloWorldScene.cpp; sourceTree = "<group>"; };
-		D6B4D49D18E86D3B00D9B436 /* mydraw.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = mydraw.jpg; path = Resources/mydraw.jpg; sourceTree = "<group>"; };
+		D6CF961218F10D9E00604B62 /* CloseNormal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CloseNormal.png; sourceTree = "<group>"; };
+		D6CF961318F10D9E00604B62 /* CloseSelected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CloseSelected.png; sourceTree = "<group>"; };
+		D6CF961418F10D9E00604B62 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		D6CF961518F10D9E00604B62 /* HelloWorld.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HelloWorld.png; sourceTree = "<group>"; };
+		D6CF961618F10D9E00604B62 /* mydraw.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = mydraw.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -946,11 +946,7 @@
 		D664A38218E8376B00D77821 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				D6B4D49D18E86D3B00D9B436 /* mydraw.jpg */,
-				D664A38318E8376B00D77821 /* CloseNormal.png */,
-				D664A38518E8376B00D77821 /* CloseSelected.png */,
-				D664A38718E8376B00D77821 /* Default.png */,
-				D664A38918E8376B00D77821 /* HelloWorld.png */,
+				D6CF961118F10D9E00604B62 /* image */,
 				D664A38B18E8376B00D77821 /* Icon-72.png */,
 				D664A38D18E8376B00D77821 /* Icon-Small-50.png */,
 				D664A38F18E8376B00D77821 /* Icon-Small.png */,
@@ -2104,6 +2100,19 @@
 			name = Classes;
 			sourceTree = "<group>";
 		};
+		D6CF961118F10D9E00604B62 /* image */ = {
+			isa = PBXGroup;
+			children = (
+				D6CF961218F10D9E00604B62 /* CloseNormal.png */,
+				D6CF961318F10D9E00604B62 /* CloseSelected.png */,
+				D6CF961418F10D9E00604B62 /* Default.png */,
+				D6CF961518F10D9E00604B62 /* HelloWorld.png */,
+				D6CF961618F10D9E00604B62 /* mydraw.jpg */,
+			);
+			name = image;
+			path = Resources/image;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -2155,19 +2164,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				D664A39418E8376B00D77821 /* Icon.png in Resources */,
+				D6CF961818F10D9E00604B62 /* CloseSelected.png in Resources */,
 				D664A43718E8376C00D77821 /* ChangeLog in Resources */,
-				D664A38418E8376B00D77821 /* CloseNormal.png in Resources */,
 				D664A39018E8376B00D77821 /* Icon-Small.png in Resources */,
+				D6CF961A18F10D9E00604B62 /* HelloWorld.png in Resources */,
 				D664A38C18E8376B00D77821 /* Icon-72.png in Resources */,
-				D664A38A18E8376B00D77821 /* HelloWorld.png in Resources */,
 				D664A38E18E8376B00D77821 /* Icon-Small-50.png in Resources */,
 				D664A39818E8376B00D77821 /* iTunesArtwork in Resources */,
+				D6CF961918F10D9E00604B62 /* Default.png in Resources */,
 				D664A39218E8376B00D77821 /* Icon-Small@2x.png in Resources */,
-				D664A38818E8376B00D77821 /* Default.png in Resources */,
-				D664A38618E8376B00D77821 /* CloseSelected.png in Resources */,
+				D6CF961718F10D9E00604B62 /* CloseNormal.png in Resources */,
 				D664A39618E8376B00D77821 /* Icon@2x.png in Resources */,
 				D664A5AB18E8376F00D77821 /* project.pbxproj in Resources */,
-				D6B4D49E18E86D3B00D9B436 /* mydraw.jpg in Resources */,
+				D6CF961B18F10D9E00604B62 /* mydraw.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2516,7 +2525,7 @@
 					"-lsqlite3",
 					"-websockets",
 				);
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "ClassCocos2d-x";
 				USER_HEADER_SEARCH_PATHS = "\"ClassCocos2d-x/libs/Chipmunk/include/chipmunk\"";
 				WRAPPER_EXTENSION = app;
 			};
@@ -2542,7 +2551,7 @@
 					"-lsqlite3",
 					"-websockets",
 				);
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "ClassCocos2d-x";
 				USER_HEADER_SEARCH_PATHS = "\"ClassCocos2d-x/libs/Chipmunk/include/chipmunk\"";
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;

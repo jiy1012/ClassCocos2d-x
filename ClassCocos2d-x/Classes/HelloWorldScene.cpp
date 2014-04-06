@@ -40,14 +40,14 @@ bool HelloWorld::init()
     // 3. add your codes below...
 
     // ask director the window size
-    CCSize size = CCDirector::sharedDirector()->getWinSize();
+    winSize = CCDirector::sharedDirector()->getWinSize();
 
 
     // add "HelloWorld" splash screen"
     CCSprite* pSprite = CCSprite::create("HelloWorld.png");
 
     // position the sprite on the center of the screen
-    pSprite->setPosition( ccp(size.width/2, size.height/2) );
+    pSprite->setPosition( ccp(winSize.width/2, winSize.height/2) );
     
 
     CCFadeOut* pFadeout = CCFadeOut::create(1.0f);
@@ -65,9 +65,8 @@ bool HelloWorld::init()
 void HelloWorld::logoDisplayCallback(CCNode* pNode)
 {
     CCLOG("%s","logoDisplayCallback pNode");
-    CCSize size = CCDirector::sharedDirector()->getWinSize();
     CCSprite* pMydraw = CCSprite::create("mydraw.jpg");
-    pMydraw->setPosition(ccp(size.width/2, size.height/2));
+    pMydraw->setPosition(ccp(winSize.width/2, winSize.height/2));
     
     CCFadeIn* pFadein = CCFadeIn::create(3.0f);
     CCDelayTime* pDelay = CCDelayTime::create(1.0f);
@@ -89,8 +88,7 @@ void HelloWorld::sloganDisplayCallback(CCNode* pNode)
     CCLOG("%s","sloganDisplayCallback");
     CCLabelTTF* pLabel = CCLabelTTF::create("四火品质坚如磐石", "", 50);
 
-    CCSize size = CCDirector::sharedDirector()->getWinSize();
-    pLabel->setPosition(ccp(size.width/2, size.height/2));
+    pLabel->setPosition(ccp(winSize.width/2, winSize.height/2));
 
     CCFadeIn* pFadein = CCFadeIn::create(3.0f);
     CCFadeOut* pFadeout = CCFadeOut::create(3.0f);
@@ -110,14 +108,13 @@ void HelloWorld::titleDisplayCallback(CCNode* pNode)
                                         "CloseSelected.png",
                                         this,
                                         menu_selector(HelloWorld::menuCloseCallback) );
-    pCloseItem->setPosition( ccp(CCDirector::sharedDirector()->getWinSize().width - 20, 20) );
+    pCloseItem->setPosition( ccp(winSize.width - 20, 20) );
     CCMenu* pMenu = CCMenu::create(pCloseItem, NULL);
     pMenu->setPosition( CCPointZero );
     this->addChild(pMenu, 1);
     
-    CCLabelTTF* pLabel = CCLabelTTF::create("我是标题", "Thonburi", 50);
-    CCSize size = CCDirector::sharedDirector()->getWinSize();
-    pLabel->setPosition( ccp(size.width / 2, size.height/2) );
+    CCLabelTTF* pLabel = CCLabelTTF::create("大战", "Thonburi", 50);
+    pLabel->setPosition( ccp(winSize.width/2, winSize.height*2/3) );
     this->addChild(pLabel, 1);
     
 }
