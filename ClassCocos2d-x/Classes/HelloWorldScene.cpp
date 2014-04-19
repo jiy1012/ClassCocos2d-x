@@ -96,7 +96,7 @@ void HelloWorld::logoDisplayCallback(CCNode* pNode)
 void HelloWorld::sloganDisplayCallback(CCNode* pNode)
 {
     CCLOG("%s","sloganDisplayCallback");
-    CCLabelTTF* pLabel = CCLabelTTF::create(/*"四火品质 坚如磐石"*/"a", "", 50);
+    CCLabelTTF* pLabel = CCLabelTTF::create("四火品质 坚如磐石", "", 50);
 
     pLabel->setPosition(ccp(winSize.width/2, winSize.height/2));
 
@@ -136,7 +136,12 @@ void HelloWorld::titleDisplayCallback(CCNode* pNode)
     
     CCLabelTTF* pLabel = CCLabelTTF::create("大战", "Thonburi", 50);
     pLabel->setPosition( ccp(winSize.width/2, winSize.height*3/4) );
-    this->addChild(pLabel, 1);
+    this->addChild(pLabel, 2);
+    
+    std::string labelV = "当前版本："+version;
+    CCLabelTTF* pLabelV = CCLabelTTF::create(labelV.c_str(), "Thonburi", 25);
+    pLabelV->setPosition( ccp(pLabelV->getContentSize().width/2,pLabelV->getContentSize().height/2) );
+    this->addChild(pLabelV, 3);
     
 }
 
