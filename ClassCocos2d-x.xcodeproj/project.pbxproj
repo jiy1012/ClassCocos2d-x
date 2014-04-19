@@ -2533,8 +2533,8 @@
 				INFOPLIST_FILE = "ClassCocos2d-x/Resources/Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"/Users/LiuYi/Documents/Projects/ClassCocos2dx/ClassCocos2d-x/ClassCocos2d-x/libs/cocos2dx/platform/third_party/ios/libraries",
-					"/Users/LiuYi/Documents/Projects/ClassCocos2dx/ClassCocos2d-x/ClassCocos2d-x/libs/libwebsockets/ios/lib",
+					"ClassCocos2d-x/libs/cocos2dx/platform/third_party/ios/libraries",
+					"ClassCocos2d-x/libs/libwebsockets/ios/lib",
 				);
 				OTHER_LDFLAGS = (
 					"-lxml2",
@@ -2560,8 +2560,8 @@
 				INFOPLIST_FILE = "ClassCocos2d-x/Resources/Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"/Users/LiuYi/Documents/Projects/ClassCocos2dx/ClassCocos2d-x/ClassCocos2d-x/libs/cocos2dx/platform/third_party/ios/libraries",
-					"/Users/LiuYi/Documents/Projects/ClassCocos2dx/ClassCocos2d-x/ClassCocos2d-x/libs/libwebsockets/ios/lib",
+					"ClassCocos2d-x/libs/cocos2dx/platform/third_party/ios/libraries",
+					"ClassCocos2d-x/libs/libwebsockets/ios/lib",
 				);
 				OTHER_LDFLAGS = (
 					"-lxml2",

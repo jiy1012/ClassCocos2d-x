@@ -4,6 +4,8 @@
 using namespace cocos2d;
 using namespace CocosDenshion;
 
+std::string version = "0.0000.1";
+bool debug = true;
 CCScene* HelloWorld::scene()
 {
     // 'scene' is an autorelease object
@@ -49,8 +51,11 @@ bool HelloWorld::init()
     // position the sprite on the center of the screen
     pSprite->setPosition( ccp(winSize.width/2, winSize.height/2) );
     
-
-    CCFadeOut* pFadeout = CCFadeOut::create(1.0f);
+    float expire = 1.0f;
+    if (true == debug) {
+        expire = 0.1f;
+    }
+    CCFadeOut* pFadeout = CCFadeOut::create(expire);
 
     CCFiniteTimeAction* pSequence = CCSequence::create(pFadeout,
                                                       CCCallFuncN::create(this,callfuncN_selector(HelloWorld::logoDisplayCallback)),
@@ -68,9 +73,14 @@ void HelloWorld::logoDisplayCallback(CCNode* pNode)
     CCSprite* pMydraw = CCSprite::create("mydraw.jpg");
     pMydraw->setPosition(ccp(winSize.width/2, winSize.height/2));
     
-    CCFadeIn* pFadein = CCFadeIn::create(3.0f);
-    CCDelayTime* pDelay = CCDelayTime::create(1.0f);
-    CCFadeOut* pFadeout = CCFadeOut::create(3.0f);
+    float expire = 3.0f;
+    if (true == debug) {
+        expire = 0.1f;
+    }
+    
+    CCFadeIn* pFadein = CCFadeIn::create(expire);
+    CCDelayTime* pDelay = CCDelayTime::create(expire);
+    CCFadeOut* pFadeout = CCFadeOut::create(expire);
     
     CCFiniteTimeAction* pSequence = CCSequence::create(pFadein,
                                                        pDelay,
@@ -86,12 +96,17 @@ void HelloWorld::logoDisplayCallback(CCNode* pNode)
 void HelloWorld::sloganDisplayCallback(CCNode* pNode)
 {
     CCLOG("%s","sloganDisplayCallback");
-    CCLabelTTF* pLabel = CCLabelTTF::create("四火品质 坚如磐石", "", 50);
+    CCLabelTTF* pLabel = CCLabelTTF::create(/*"四火品质 坚如磐石"*/"a", "", 50);
 
     pLabel->setPosition(ccp(winSize.width/2, winSize.height/2));
 
-    CCFadeIn* pFadein = CCFadeIn::create(3.0f);
-    CCFadeOut* pFadeout = CCFadeOut::create(3.0f);
+    float expire = 3.0f;
+    if (true == debug) {
+        expire = 0.1f;
+    }
+    
+    CCFadeIn* pFadein = CCFadeIn::create(expire);
+    CCFadeOut* pFadeout = CCFadeOut::create(expire);
     CCFiniteTimeAction* pSequence = CCSequence::create(pFadein,
                                                        pFadeout,
                                                        CCCallFuncN::create(this,callfuncN_selector(HelloWorld::titleDisplayCallback)),
@@ -104,13 +119,18 @@ void HelloWorld::titleDisplayCallback(CCNode* pNode)
 {
     CCLOG("%s","titleDisplayCallback");
     
-    CCMenuItemImage* pStratButton = CCMenuItemImage::create("startButton.png", "startButtonSelected.png", this, menu_selector(HelloWorld::menuCloseCallback));
-    pStratButton->setPosition(ccp(winSize.width/2, winSize.height/3));
+    CCMenuItemImage* pStratButton = CCMenuItemImage::create("startButton.png", "startButtonSelected.png", this, menu_selector(HelloWorld::startGame));
+    
+    pStratButton->setPosition(ccp(winSize.width/6, winSize.height/3));
     
     CCMenuItemImage* pExitButton = CCMenuItemImage::create("exitButton.png", "exitButtonSelected.png", this, menu_selector(HelloWorld::menuCloseCallback));
-    pExitButton->setPosition(ccp(winSize.width/2, winSize.height/5));
+    pExitButton->setPosition(ccp(winSize.width/2, winSize.height/3));
 
-    CCMenu* pMenu = CCMenu::create(pStratButton,pExitButton,NULL);
+    CCMenuItemImage* pCheckVersion = CCMenuItemImage::create("exitButton.png", "exitButtonSelected.png", this, menu_selector(HelloWorld::checkUpdate));
+    pCheckVersion->setPosition(ccp(winSize.width/6*5, winSize.height/3));
+    
+    
+    CCMenu* pMenu = CCMenu::create(pStratButton,pExitButton,pCheckVersion,NULL);
     pMenu->setPosition( CCPointZero );
     this->addChild(pMenu, 1);
     
@@ -119,6 +139,61 @@ void HelloWorld::titleDisplayCallback(CCNode* pNode)
     this->addChild(pLabel, 1);
     
 }
+
+void HelloWorld::startGame(CCObject* pSender)
+{
+    CCLog("start game");
+}
+void HelloWorld::checkUpdate(CCObject* pSender)
+{
+    CCLog("check version:%s",version.c_str());
+    CCHttpRequest* request = new CCHttpRequest();
+    request->setUrl("http://5461.sinaapp.com/checkversion.php");
+    request->setRequestType(CCHttpRequest::kHttpPost);
+    request->setResponseCallback(this, httpresponse_selector(HelloWorld::checkUpdateResponse));
+    
+    const char* postData = "game=class";
+    request->setRequestData(postData, strlen(postData));
+    
+    request->setTag("POST check version");
+    CCHttpClient::getInstance()->send(request);
+    request->release();
+}
+
+
+
+void HelloWorld::checkUpdateResponse(CCHttpClient *sender, CCHttpResponse *response)
+{
+    if (!response)
+    {
+        return;
+    }
+    
+    // You can get original request type from: response->request->reqType
+    if (0 != strlen(response->getHttpRequest()->getTag()))
+    {
+        CCLog("%s completed", response->getHttpRequest()->getTag());
+    }
+    
+    int statusCode = response->getResponseCode();
+    CCLog("response code: %d", statusCode);
+    
+    if (!response->isSucceed())
+    {
+        CCLog("response failed");
+        CCLog("response failed buffer: %s", response->getErrorBuffer());
+        return;
+    }
+    // dump data
+    std::vector<char> *buffer = response->getResponseData();
+    std::string res;
+    res.assign(buffer->begin(),buffer->end());
+
+    CCLog("response data: %lu %s \n",buffer->size(),res.c_str());
+    
+    
+}
+
 void HelloWorld::menuCloseCallback(CCObject* pSender)
 {
     CCDirector::sharedDirector()->end();

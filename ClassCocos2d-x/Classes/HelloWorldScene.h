@@ -2,7 +2,9 @@
 #define __HELLOWORLD_SCENE_H__
 
 #include "cocos2d.h"
+#include "cocos-ext.h"
 USING_NS_CC;
+USING_NS_CC_EXT;
 
 class HelloWorld : public cocos2d::CCLayer
 {
@@ -18,6 +20,10 @@ public:
     // there's no 'id' in cpp, so we recommend to return the class instance pointer
     static cocos2d::CCScene* scene();
     
+    void startGame(CCObject* pSender);
+    
+    void checkUpdate(CCObject* pSender);
+    void checkUpdateResponse(CCHttpClient *sender, CCHttpResponse *response);
     // a selector callback
     void menuCloseCallback(CCObject* pSender);
     
