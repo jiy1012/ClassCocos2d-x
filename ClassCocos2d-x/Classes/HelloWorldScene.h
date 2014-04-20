@@ -3,6 +3,7 @@
 
 #include "cocos2d.h"
 #include "cocos-ext.h"
+#include "Json.h"
 USING_NS_CC;
 USING_NS_CC_EXT;
 
@@ -21,6 +22,8 @@ public:
     static cocos2d::CCScene* scene();
     
     void startGame(CCObject* pSender);
+    
+    void backCallback(CCObject* pSender);
     
     void checkUpdate(CCObject* pSender);
     void checkUpdateResponse(CCHttpClient *sender, CCHttpResponse *response);

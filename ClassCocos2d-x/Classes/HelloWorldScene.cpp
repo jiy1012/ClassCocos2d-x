@@ -4,8 +4,8 @@
 using namespace cocos2d;
 using namespace CocosDenshion;
 
-std::string version = "0.0000.1";
-bool debug = true;
+std::string version = "1.0000.2";
+bool debug = false;
 CCScene* HelloWorld::scene()
 {
     // 'scene' is an autorelease object
@@ -126,7 +126,7 @@ void HelloWorld::titleDisplayCallback(CCNode* pNode)
     CCMenuItemImage* pExitButton = CCMenuItemImage::create("exitButton.png", "exitButtonSelected.png", this, menu_selector(HelloWorld::menuCloseCallback));
     pExitButton->setPosition(ccp(winSize.width/2, winSize.height/3));
 
-    CCMenuItemImage* pCheckVersion = CCMenuItemImage::create("exitButton.png", "exitButtonSelected.png", this, menu_selector(HelloWorld::checkUpdate));
+    CCMenuItemImage* pCheckVersion = CCMenuItemImage::create("checkUpdate.png", "checkUpdateSelected.png", this, menu_selector(HelloWorld::checkUpdate));
     pCheckVersion->setPosition(ccp(winSize.width/6*5, winSize.height/3));
     
     
@@ -191,12 +191,46 @@ void HelloWorld::checkUpdateResponse(CCHttpClient *sender, CCHttpResponse *respo
     }
     // dump data
     std::vector<char> *buffer = response->getResponseData();
-    std::string res;
-    res.assign(buffer->begin(),buffer->end());
+    
+//    std::string res;
+//    res.assign(buffer->begin(),buffer->end());
+//    CCLog("response data: %lu %s \n",buffer->size(),res.c_str());
+    
+    char const* json = &(*buffer->begin());
+    Json* resJson = Json_create(json);
+    
+    const char* versionRes = Json_getString(resJson, "version",0);
+    const char* updateUrl = Json_getString(resJson, "updateUrl", 0);
+    
+    CCLog("ver:%s updateUrl:%s" , versionRes,updateUrl);
+    
+    CCScene* checkRes = CCScene::create();
+    
+    std::string text ="当前已经是最新版本";
+    
+    if (strcmp(versionRes, version.c_str()) != 0 )
+    {
+        text = versionRes;
+        text = "发现新版本" + text ;
+    }
+    
+    CCLabelTTF* label = CCLabelTTF::create(text.c_str() , "", 50);
+    label->setPosition(ccp(winSize.width/2,winSize.height/2 ));
+    CCMenuItemImage* backButton = CCMenuItemImage::create("backButton.png", "backButtonSelected.png", this, menu_selector(HelloWorld::backCallback));
+    backButton->setPosition(ccp(winSize.width-backButton->getContentSize().width, backButton->getContentSize().height));
+    checkRes->addChild(label);
+    CCMenu* bMenu = CCMenu::create(backButton,NULL);
+    bMenu->setPosition( CCPointZero );
+    checkRes->addChild(bMenu);
+    CCDirector::sharedDirector()->pushScene(checkRes);
+//    checkRes->release();
+}
 
-    CCLog("response data: %lu %s \n",buffer->size(),res.c_str());
-    
-    
+void HelloWorld::backCallback(CCObject* pSender)
+{
+    CCLog("back button click");
+    CCDirector::sharedDirector()->popScene();
+
 }
 
 void HelloWorld::menuCloseCallback(CCObject* pSender)

@@ -276,6 +276,10 @@
 		D664A70F18E8377100D77821 /* libwebsockets.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D664A70E18E8377100D77821 /* libwebsockets.a */; };
 		D664A71518E8377100D77821 /* AppDelegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D664A71418E8377100D77821 /* AppDelegate.cpp */; };
 		D664A71818E8377100D77821 /* HelloWorldScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D664A71718E8377100D77821 /* HelloWorldScene.cpp */; };
+		D666CE2A1903CCAF00273914 /* checkUpdate.png in Resources */ = {isa = PBXBuildFile; fileRef = D666CE281903CCAF00273914 /* checkUpdate.png */; };
+		D666CE2D1903CCE900273914 /* checkUpdateSelected.png in Resources */ = {isa = PBXBuildFile; fileRef = D666CE2C1903CCE900273914 /* checkUpdateSelected.png */; };
+		D666CE301903D2D700273914 /* backButton.png in Resources */ = {isa = PBXBuildFile; fileRef = D666CE2E1903D2D700273914 /* backButton.png */; };
+		D666CE311903D2D700273914 /* backButtonSelected.png in Resources */ = {isa = PBXBuildFile; fileRef = D666CE2F1903D2D700273914 /* backButtonSelected.png */; };
 		D6A34D6618F1736600985BD7 /* exitButton.png in Resources */ = {isa = PBXBuildFile; fileRef = D6A34D6218F1736600985BD7 /* exitButton.png */; };
 		D6A34D6718F1736600985BD7 /* exitButtonSelected.png in Resources */ = {isa = PBXBuildFile; fileRef = D6A34D6318F1736600985BD7 /* exitButtonSelected.png */; };
 		D6A34D6818F1736600985BD7 /* startButton.png in Resources */ = {isa = PBXBuildFile; fileRef = D6A34D6418F1736600985BD7 /* startButton.png */; };
@@ -874,6 +878,10 @@
 		D664A71418E8377100D77821 /* AppDelegate.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = AppDelegate.cpp; path = Classes/AppDelegate.cpp; sourceTree = "<group>"; };
 		D664A71618E8377100D77821 /* HelloWorldScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = HelloWorldScene.h; path = Classes/HelloWorldScene.h; sourceTree = "<group>"; };
 		D664A71718E8377100D77821 /* HelloWorldScene.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = HelloWorldScene.cpp; path = Classes/HelloWorldScene.cpp; sourceTree = "<group>"; };
+		D666CE281903CCAF00273914 /* checkUpdate.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checkUpdate.png; sourceTree = "<group>"; };
+		D666CE2C1903CCE900273914 /* checkUpdateSelected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checkUpdateSelected.png; sourceTree = "<group>"; };
+		D666CE2E1903D2D700273914 /* backButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backButton.png; sourceTree = "<group>"; };
+		D666CE2F1903D2D700273914 /* backButtonSelected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backButtonSelected.png; sourceTree = "<group>"; };
 		D6A34D6218F1736600985BD7 /* exitButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = exitButton.png; sourceTree = "<group>"; };
 		D6A34D6318F1736600985BD7 /* exitButtonSelected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = exitButtonSelected.png; sourceTree = "<group>"; };
 		D6A34D6418F1736600985BD7 /* startButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = startButton.png; sourceTree = "<group>"; };
@@ -2111,6 +2119,10 @@
 		D6CF961118F10D9E00604B62 /* image */ = {
 			isa = PBXGroup;
 			children = (
+				D666CE2E1903D2D700273914 /* backButton.png */,
+				D666CE2F1903D2D700273914 /* backButtonSelected.png */,
+				D666CE2C1903CCE900273914 /* checkUpdateSelected.png */,
+				D666CE281903CCAF00273914 /* checkUpdate.png */,
 				D6A34D6218F1736600985BD7 /* exitButton.png */,
 				D6A34D6318F1736600985BD7 /* exitButtonSelected.png */,
 				D6A34D6418F1736600985BD7 /* startButton.png */,
@@ -2176,7 +2188,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				D664A39418E8376B00D77821 /* Icon.png in Resources */,
+				D666CE311903D2D700273914 /* backButtonSelected.png in Resources */,
+				D666CE301903D2D700273914 /* backButton.png in Resources */,
 				D6CF961818F10D9E00604B62 /* CloseSelected.png in Resources */,
+				D666CE2A1903CCAF00273914 /* checkUpdate.png in Resources */,
 				D664A43718E8376C00D77821 /* ChangeLog in Resources */,
 				D6A34D6618F1736600985BD7 /* exitButton.png in Resources */,
 				D664A39018E8376B00D77821 /* Icon-Small.png in Resources */,
@@ -2186,6 +2201,7 @@
 				D664A38E18E8376B00D77821 /* Icon-Small-50.png in Resources */,
 				D6A34D6718F1736600985BD7 /* exitButtonSelected.png in Resources */,
 				D664A39818E8376B00D77821 /* iTunesArtwork in Resources */,
+				D666CE2D1903CCE900273914 /* checkUpdateSelected.png in Resources */,
 				D6A34D6918F1736600985BD7 /* startButtonSelected.png in Resources */,
 				D6CF961918F10D9E00604B62 /* Default.png in Resources */,
 				D664A39218E8376B00D77821 /* Icon-Small@2x.png in Resources */,
