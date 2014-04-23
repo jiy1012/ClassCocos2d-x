@@ -3,7 +3,8 @@
 
 #include "cocos2d.h"
 #include "cocos-ext.h"
-#include "Json.h"
+#include <spine/Json.h>
+
 USING_NS_CC;
 USING_NS_CC_EXT;
 
