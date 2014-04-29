@@ -1,5 +1,6 @@
 #include "HelloWorldScene.h"
 #include "SimpleAudioEngine.h"
+#include "DWSScence.h"
 
 using namespace cocos2d;
 using namespace CocosDenshion;
@@ -43,26 +44,19 @@ bool HelloWorld::init()
 
     // ask director the window size
     winSize = CCDirector::sharedDirector()->getWinSize();
-
-
+        
     // add "HelloWorld" splash screen"
-    CCSprite* pSprite = CCSprite::create("HelloWorld.png");
-
-    // position the sprite on the center of the screen
-    pSprite->setPosition( ccp(winSize.width/2, winSize.height/2) );
+    DWSScence* DWSScence ;
+    CCSprite* DWSSprite = DWSScence->DWSLogoDisplay(winSize);
     
-    float expire = 1.0f;
-    if (true == debug) {
-        expire = 0.1f;
-    }
-    CCFadeOut* pFadeout = CCFadeOut::create(expire);
-
+    CCFadeOut* pFadeout = CCFadeOut::create(3.0f);
     CCFiniteTimeAction* pSequence = CCSequence::create(pFadeout,
-                                                      CCCallFuncN::create(this,callfuncN_selector(HelloWorld::logoDisplayCallback)),
-                                                        NULL);
-    pSprite->runAction(pSequence);
-    // add the sprite as a child to this layer
-    this->addChild(pSprite, 0);
+                                                       CCCallFuncN::create(this,callfuncN_selector(HelloWorld::logoDisplayCallback)),
+                                                       NULL);
+    DWSSprite->runAction(pSequence);
+    
+    this->addChild(DWSSprite, 0);
+
     return true;
 }
 
@@ -73,7 +67,7 @@ void HelloWorld::logoDisplayCallback(CCNode* pNode)
     CCSprite* pMydraw = CCSprite::create("mydraw.jpg");
     pMydraw->setPosition(ccp(winSize.width/2, winSize.height/2));
     
-    float expire = 3.0f;
+    float expire = 1.5f;
     if (true == debug) {
         expire = 0.1f;
     }
@@ -100,7 +94,7 @@ void HelloWorld::sloganDisplayCallback(CCNode* pNode)
 
     pLabel->setPosition(ccp(winSize.width/2, winSize.height/2));
 
-    float expire = 3.0f;
+    float expire = 1.5f;
     if (true == debug) {
         expire = 0.1f;
     }
@@ -137,6 +131,10 @@ void HelloWorld::titleDisplayCallback(CCNode* pNode)
     CCLabelTTF* pLabel = CCLabelTTF::create("大战", "Thonburi", 50);
     pLabel->setPosition( ccp(winSize.width/2, winSize.height*3/4) );
     this->addChild(pLabel, 2);
+    
+    DWSScence* DWSScence;
+    CCSprite* DWSHeroTitle = DWSScence->DWSTitleHeroDisplay(winSize);
+    this->addChild(DWSHeroTitle);
     
     std::string labelV = "当前版本："+version;
     CCLabelTTF* pLabelV = CCLabelTTF::create(labelV.c_str(), "Thonburi", 25);
