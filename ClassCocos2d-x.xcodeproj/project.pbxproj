@@ -280,8 +280,10 @@
 		D666CE2D1903CCE900273914 /* checkUpdateSelected.png in Resources */ = {isa = PBXBuildFile; fileRef = D666CE2C1903CCE900273914 /* checkUpdateSelected.png */; };
 		D666CE301903D2D700273914 /* backButton.png in Resources */ = {isa = PBXBuildFile; fileRef = D666CE2E1903D2D700273914 /* backButton.png */; };
 		D666CE311903D2D700273914 /* backButtonSelected.png in Resources */ = {isa = PBXBuildFile; fileRef = D666CE2F1903D2D700273914 /* backButtonSelected.png */; };
+		D6732F1319110877009A4411 /* DatabaseDefault.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D6732F1119110877009A4411 /* DatabaseDefault.cpp */; };
 		D6A17243190E5794000F40DB /* DWSScence.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D6A17241190E5794000F40DB /* DWSScence.cpp */; };
 		D6A17245190E5857000F40DB /* DWS.LOGO.png in Resources */ = {isa = PBXBuildFile; fileRef = D6A17244190E5857000F40DB /* DWS.LOGO.png */; };
+		D6A1724A190FB60F000F40DB /* database.xml in Resources */ = {isa = PBXBuildFile; fileRef = D6A17249190FB60F000F40DB /* database.xml */; };
 		D6A34D6618F1736600985BD7 /* exitButton.png in Resources */ = {isa = PBXBuildFile; fileRef = D6A34D6218F1736600985BD7 /* exitButton.png */; };
 		D6A34D6718F1736600985BD7 /* exitButtonSelected.png in Resources */ = {isa = PBXBuildFile; fileRef = D6A34D6318F1736600985BD7 /* exitButtonSelected.png */; };
 		D6A34D6818F1736600985BD7 /* startButton.png in Resources */ = {isa = PBXBuildFile; fileRef = D6A34D6418F1736600985BD7 /* startButton.png */; };
@@ -886,9 +888,12 @@
 		D666CE2C1903CCE900273914 /* checkUpdateSelected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checkUpdateSelected.png; sourceTree = "<group>"; };
 		D666CE2E1903D2D700273914 /* backButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backButton.png; sourceTree = "<group>"; };
 		D666CE2F1903D2D700273914 /* backButtonSelected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backButtonSelected.png; sourceTree = "<group>"; };
+		D6732F1119110877009A4411 /* DatabaseDefault.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = DatabaseDefault.cpp; path = Classes/DatabaseDefault.cpp; sourceTree = "<group>"; };
+		D6732F1219110877009A4411 /* DatabaseDefault.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DatabaseDefault.h; path = Classes/DatabaseDefault.h; sourceTree = "<group>"; };
 		D6A17241190E5794000F40DB /* DWSScence.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = DWSScence.cpp; path = Classes/DWSScence.cpp; sourceTree = "<group>"; };
 		D6A17242190E5794000F40DB /* DWSScence.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DWSScence.h; path = Classes/DWSScence.h; sourceTree = "<group>"; };
 		D6A17244190E5857000F40DB /* DWS.LOGO.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DWS.LOGO.png; sourceTree = "<group>"; };
+		D6A17249190FB60F000F40DB /* database.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = database.xml; sourceTree = "<group>"; };
 		D6A34D6218F1736600985BD7 /* exitButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = exitButton.png; sourceTree = "<group>"; };
 		D6A34D6318F1736600985BD7 /* exitButtonSelected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = exitButtonSelected.png; sourceTree = "<group>"; };
 		D6A34D6418F1736600985BD7 /* startButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = startButton.png; sourceTree = "<group>"; };
@@ -971,6 +976,7 @@
 		D664A38218E8376B00D77821 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				D6A17248190FB60F000F40DB /* conf */,
 				D6CF961118F10D9E00604B62 /* image */,
 				D664A38B18E8376B00D77821 /* Icon-72.png */,
 				D664A38D18E8376B00D77821 /* Icon-Small-50.png */,
@@ -2117,6 +2123,8 @@
 		D664A71218E8377100D77821 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				D6732F1119110877009A4411 /* DatabaseDefault.cpp */,
+				D6732F1219110877009A4411 /* DatabaseDefault.h */,
 				D664A71318E8377100D77821 /* AppDelegate.h */,
 				D664A71418E8377100D77821 /* AppDelegate.cpp */,
 				D664A71618E8377100D77821 /* HelloWorldScene.h */,
@@ -2125,6 +2133,15 @@
 				D6A17242190E5794000F40DB /* DWSScence.h */,
 			);
 			name = Classes;
+			sourceTree = "<group>";
+		};
+		D6A17248190FB60F000F40DB /* conf */ = {
+			isa = PBXGroup;
+			children = (
+				D6A17249190FB60F000F40DB /* database.xml */,
+			);
+			name = conf;
+			path = Resources/conf;
 			sourceTree = "<group>";
 		};
 		D6CF961118F10D9E00604B62 /* image */ = {
@@ -2222,6 +2239,7 @@
 				D6CF961918F10D9E00604B62 /* Default.png in Resources */,
 				D6BA2E201909101400A066C9 /* DWS.J.png in Resources */,
 				D664A39218E8376B00D77821 /* Icon-Small@2x.png in Resources */,
+				D6A1724A190FB60F000F40DB /* database.xml in Resources */,
 				D6CF961718F10D9E00604B62 /* CloseNormal.png in Resources */,
 				D664A39618E8376B00D77821 /* Icon@2x.png in Resources */,
 				D664A5AB18E8376F00D77821 /* project.pbxproj in Resources */,
@@ -2473,6 +2491,7 @@
 				D664A52A18E8376E00D77821 /* CCPointExtension.cpp in Sources */,
 				D664A5F618E8376F00D77821 /* CCScale9SpriteLoader.cpp in Sources */,
 				D664A53318E8376E00D77821 /* ccUtils.cpp in Sources */,
+				D6732F1319110877009A4411 /* DatabaseDefault.cpp in Sources */,
 				D664A63618E8376F00D77821 /* CCEditBox.cpp in Sources */,
 				D664A64518E8377000D77821 /* CCEditBoxImplWin.cpp in Sources */,
 				D664A45B18E8376C00D77821 /* CCLabelAtlas.cpp in Sources */,

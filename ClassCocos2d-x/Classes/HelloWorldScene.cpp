@@ -1,12 +1,11 @@
 #include "HelloWorldScene.h"
 #include "SimpleAudioEngine.h"
-#include "DWSScence.h"
 
 using namespace cocos2d;
 using namespace CocosDenshion;
 
 std::string version = "1.0000.2";
-bool debug = false;
+bool debug = true;
 CCScene* HelloWorld::scene()
 {
     // 'scene' is an autorelease object
@@ -32,21 +31,13 @@ bool HelloWorld::init()
         return false;
     }
 
-    /////////////////////////////
-    // 2. add a menu item with "X" image, which is clicked to quit the program
-    //    you may modify it.
-
-    // add a "close" icon to exit the progress. it's an autorelease object
-
-
-    /////////////////////////////
-    // 3. add your codes below...
+    
 
     // ask director the window size
     winSize = CCDirector::sharedDirector()->getWinSize();
         
     // add "HelloWorld" splash screen"
-    DWSScence* DWSScence ;
+
     CCSprite* DWSSprite = DWSScence->DWSLogoDisplay(winSize);
     
     CCFadeOut* pFadeout = CCFadeOut::create(3.0f);
@@ -55,8 +46,8 @@ bool HelloWorld::init()
                                                        NULL);
     DWSSprite->runAction(pSequence);
     
-    this->addChild(DWSSprite, 0);
-
+//    this->addChild(DWSSprite, 0);
+    HelloWorld::loadConfig();
     return true;
 }
 
@@ -132,7 +123,6 @@ void HelloWorld::titleDisplayCallback(CCNode* pNode)
     pLabel->setPosition( ccp(winSize.width/2, winSize.height*3/4) );
     this->addChild(pLabel, 2);
     
-    DWSScence* DWSScence;
     CCSprite* DWSHeroTitle = DWSScence->DWSTitleHeroDisplay(winSize);
     this->addChild(DWSHeroTitle);
     
@@ -140,12 +130,25 @@ void HelloWorld::titleDisplayCallback(CCNode* pNode)
     CCLabelTTF* pLabelV = CCLabelTTF::create(labelV.c_str(), "Thonburi", 25);
     pLabelV->setPosition( ccp(pLabelV->getContentSize().width/2,pLabelV->getContentSize().height/2) );
     this->addChild(pLabelV, 3);
-    
+
 }
 
 void HelloWorld::startGame(CCObject* pSender)
 {
     CCLog("start game");
+
+
+    
+}
+
+void HelloWorld::loadConfig()
+{
+    CCLog("load config xml");
+    DatabaseDefault::shared();
+    
+    
+    
+    
 }
 void HelloWorld::checkUpdate(CCObject* pSender)
 {

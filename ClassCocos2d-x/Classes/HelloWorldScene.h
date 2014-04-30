@@ -5,6 +5,9 @@
 #include "cocos-ext.h"
 #include <spine/Json.h>
 
+#include "DWSScence.h"
+#include "DatabaseDefault.h"
+
 USING_NS_CC;
 USING_NS_CC_EXT;
 
@@ -36,7 +39,12 @@ public:
     
     void titleDisplayCallback(CCNode* pNode);
     
+    void loadConfig();
+    
     CCSize winSize;
+    
+    DWSScence* DWSScence;
+    
     // preprocessor macro for "static create()" constructor ( node() deprecated )
     CREATE_FUNC(HelloWorld);
     

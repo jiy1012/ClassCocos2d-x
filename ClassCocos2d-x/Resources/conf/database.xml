@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<DWS:database xmlns:DWS="http://5461.sinapp.com/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<Group id="Hero" type="conf">
+		<Hero id="100" name="chan" attack="10" defense="10" crit="10"/>
+		<Hero id="101" name="jian" attack="11" defense="10" crit="10"/>
+		<Hero id="102" name="ss" attack="12" defense="10" crit="10"/>
+		<Hero id="103" name="xiaoshuang" attack="13" defense="10" crit="10"/>
+		<Hero id="104" name="hezimei" attack="14" defense="10" crit="10"/>
+		<Hero id="105" name="tuiqun" attack="15" defense="10" crit="10"/>
+		<Hero id="106" name="jiangnima" attack="16" defense="10" crit="10"/>
+		<Hero id="107" name="sbcaicai" attack="17" defense="10" crit="10"/>
+		<Hero id="108" name="xiaoyi" attack="18" defense="10" crit="10"/>
+		<Hero id="109" name="jblong" attack="19" defense="10" crit="10"/>
+		<Hero id="110" name="Yi" attack="99" defense="99" crit="99"/>
+	</Group>
+
+	<!-- 物品 可以放在背包里的物品  -->
+	<Group id="Language">
+		<Language id="title" value="标题"/>
+	</Group>
+	<!--建筑物-->
+	<Group id="skill">
+		<skill id="1" name="du" effect="du"/>
+		<skill id="2" name="lianji" effect="lianji"/>
+		<skill id="3" name="mabi" effect="mabi"/>
+		<skill id="4" name="huifu" effect="huifu"/>
+	</Group>
+	<Group id="job">
+		<job id="1" name="wushi" skill="2" />
+		<job id="2" name="daozei" skill="3" />
+		<job id="3" name="baimofa" skill="4" />
+		<job id="4" name="heimofa" skill="1" />
+	</Group>
+</DWS:database>
