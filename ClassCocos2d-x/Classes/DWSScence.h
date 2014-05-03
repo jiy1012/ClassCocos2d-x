@@ -11,7 +11,6 @@
 
 #include "cocos2d.h"
 #include "cocos-ext.h"
-#include <spine/Json.h>
 
 USING_NS_CC;
 USING_NS_CC_EXT;
@@ -19,11 +18,9 @@ USING_NS_CC_EXT;
 class DWSScence : public cocos2d::CCLayer
 {
 public:
-    
+    CREATE_FUNC(DWSScence);
     
     CCSprite* DWSLogoDisplay(CCSize winSize);
-    
-    CREATE_FUNC(DWSScence);
     
     CCSprite* DWSTitleHeroDisplay(CCSize winSize);
     

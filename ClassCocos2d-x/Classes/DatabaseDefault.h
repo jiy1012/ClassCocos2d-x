@@ -11,7 +11,7 @@
 
 #include "cocos2d.h"
 #include "cocos-ext.h"
-#include "tinyxml2.h"
+#include "support/tinyxml2/tinyxml2.h"
 
 USING_NS_CC;
 USING_NS_CC_EXT;
@@ -21,7 +21,16 @@ using namespace tinyxml2;
 class DatabaseDefault : public cocos2d::CCObject
 {
 public:
+    DatabaseDefault();
+    ~DatabaseDefault();
+    
     static DatabaseDefault* shared();
+    
+    CCDictionary* getItemById(int itemId);
+    CCDictionary* getGroupItemById(std::string groupName);
+    
+    CCDictionary* pGroupItem;
+    CCDictionary* pItem;
     
 public:
     void loadDatabase();

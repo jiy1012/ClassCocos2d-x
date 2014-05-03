@@ -6,6 +6,7 @@ using namespace CocosDenshion;
 
 std::string version = "1.0000.2";
 bool debug = true;
+
 CCScene* HelloWorld::scene()
 {
     // 'scene' is an autorelease object
@@ -38,7 +39,7 @@ bool HelloWorld::init()
         
     // add "HelloWorld" splash screen"
 
-    CCSprite* DWSSprite = DWSScence->DWSLogoDisplay(winSize);
+    CCSprite* DWSSprite = DWS->DWSLogoDisplay(winSize);
     
     CCFadeOut* pFadeout = CCFadeOut::create(3.0f);
     CCFiniteTimeAction* pSequence = CCSequence::create(pFadeout,
@@ -46,7 +47,7 @@ bool HelloWorld::init()
                                                        NULL);
     DWSSprite->runAction(pSequence);
     
-//    this->addChild(DWSSprite, 0);
+    this->addChild(DWSSprite, 0);
     HelloWorld::loadConfig();
     return true;
 }
@@ -123,31 +124,46 @@ void HelloWorld::titleDisplayCallback(CCNode* pNode)
     pLabel->setPosition( ccp(winSize.width/2, winSize.height*3/4) );
     this->addChild(pLabel, 2);
     
-    CCSprite* DWSHeroTitle = DWSScence->DWSTitleHeroDisplay(winSize);
-    this->addChild(DWSHeroTitle);
+    CCSprite* DWSHeroTitle = DWS->DWSTitleHeroDisplay(winSize);
+    this->addChild(DWSHeroTitle,2);
     
     std::string labelV = "当前版本："+version;
     CCLabelTTF* pLabelV = CCLabelTTF::create(labelV.c_str(), "Thonburi", 25);
     pLabelV->setPosition( ccp(pLabelV->getContentSize().width/2,pLabelV->getContentSize().height/2) );
-    this->addChild(pLabelV, 3);
+    this->addChild(pLabelV, 1);
 
 }
 
 void HelloWorld::startGame(CCObject* pSender)
 {
     CCLog("start game");
-
-
     
+    CCMenuItemImage* pStartButton = (CCMenuItemImage*) pSender;
+    
+    int X = rand();
+    int Y = rand();
+    X = X%(int) (winSize.width - pStartButton->getContentSize().width/2);
+    Y = Y%(int) (winSize.height - pStartButton->getContentSize().height/2);
+    /*
+     X:pStartButton->getContentSize().width/2~winSize.width-pStartButton->getContentSize().width/2
+     Y:pStartButton->getContentSize().height/2~winSize.height-pStartButton->getContentSize().height/2
+     */
+    if (X < pStartButton->getContentSize().width/2) {
+        X = pStartButton->getContentSize().width/2;
+    }
+    if (Y < pStartButton->getContentSize().height/2) {
+        Y = pStartButton->getContentSize().height/2;
+    }
+//    CCLog("X:%d , Y:%d" , X,Y);
+    pStartButton->setPosition(ccp( X, Y));
 }
 
 void HelloWorld::loadConfig()
 {
     CCLog("load config xml");
-    DatabaseDefault::shared();
+//    DatabaseDefault::shared();
     
-    
-    
+      
     
 }
 void HelloWorld::checkUpdate(CCObject* pSender)
