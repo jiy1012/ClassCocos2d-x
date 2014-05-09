@@ -7,7 +7,9 @@
 //
 
 #include "DWSScence.h"
+#include "DatabaseDefault.h"
 #include "SimpleAudioEngine.h"
+#include "HeroTableLayer.h"
 
 using namespace cocos2d;
 using namespace CocosDenshion;
@@ -56,3 +58,53 @@ CCSprite* DWSScence::DWSTitleHeroDisplay(CCSize winSize)
     
     return DWSHero;
 }
+
+CCScene* DWSScence::DWSHeroShow()
+{
+
+    CCScene* heroAll = CCScene::create();
+    HeroTableLayer* layer = HeroTableLayer::create();
+    heroAll->addChild(layer);
+    
+    
+//    CCDictionary* groupHero = DatabaseDefault::shared()->getGroupItemByGroupID("Hero");
+//    
+//    CCLog("here %d",groupHero->count());
+//    
+//    CCDictElement* heroOne;
+//    CCArray* heroList = CCArray::create();
+// 
+//    CCDICT_FOREACH(groupHero, heroOne)
+//    {
+////        int heroId =heroOne->getIntKey();
+////        const char* name = ((CCString*)((CCDictionary*)(heroOne->getObject()))->objectForKey("name"))->getCString();
+////        const char* heroImage = CCString::createWithFormat("hero_%s.png",name)->getCString();
+////        CCMenuItemImage* heroMenu = CCMenuItemImage::create(heroImage, heroImage, this, menu_selector(DWSScence::HeroClick));
+////        
+////        heroMenu->setPosition(100, 100*i);
+////        heroList->addObject(heroMenu);
+//
+//        
+//    };
+//    CCMenu* pHeroMenu = CCMenu::createWithArray(heroList);
+//    heroAll->addChild(pHeroMenu);
+//    CCMenuItemImage* backButton = CCMenuItemImage::create("backButton.png", "backButtonSelected.png", this, menu_selector(DWSScence::HeroClick));
+//    backButton->setPosition(ccp(100, 200));
+//    CCMenu* bMenu = CCMenu::create(backButton,NULL);
+//    bMenu->setPosition( CCPointZero );
+//    heroAll->addChild(bMenu);
+
+    return heroAll;
+}
+
+
+
+void DWSScence::HeroClick(CCObject* pSender)
+{
+    
+    CCLog("click hero");
+    CCDirector::sharedDirector()->popScene();
+
+}
+
+

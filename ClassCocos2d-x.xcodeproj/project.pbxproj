@@ -281,6 +281,9 @@
 		D666CE301903D2D700273914 /* backButton.png in Resources */ = {isa = PBXBuildFile; fileRef = D666CE2E1903D2D700273914 /* backButton.png */; };
 		D666CE311903D2D700273914 /* backButtonSelected.png in Resources */ = {isa = PBXBuildFile; fileRef = D666CE2F1903D2D700273914 /* backButtonSelected.png */; };
 		D6732F1319110877009A4411 /* DatabaseDefault.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D6732F1119110877009A4411 /* DatabaseDefault.cpp */; };
+		D69CCE17191A04A400FE1F00 /* hero_chan.png in Resources */ = {isa = PBXBuildFile; fileRef = D69CCE15191A04A400FE1F00 /* hero_chan.png */; };
+		D69CCE18191A04A400FE1F00 /* hero_jian.png in Resources */ = {isa = PBXBuildFile; fileRef = D69CCE16191A04A400FE1F00 /* hero_jian.png */; };
+		D69CCE1E191CE4EA00FE1F00 /* HeroTableLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D69CCE1C191CE4EA00FE1F00 /* HeroTableLayer.cpp */; };
 		D6A17243190E5794000F40DB /* DWSScence.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D6A17241190E5794000F40DB /* DWSScence.cpp */; };
 		D6A17245190E5857000F40DB /* DWS.LOGO.png in Resources */ = {isa = PBXBuildFile; fileRef = D6A17244190E5857000F40DB /* DWS.LOGO.png */; };
 		D6A1724A190FB60F000F40DB /* database.xml in Resources */ = {isa = PBXBuildFile; fileRef = D6A17249190FB60F000F40DB /* database.xml */; };
@@ -890,6 +893,10 @@
 		D666CE2F1903D2D700273914 /* backButtonSelected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backButtonSelected.png; sourceTree = "<group>"; };
 		D6732F1119110877009A4411 /* DatabaseDefault.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = DatabaseDefault.cpp; path = Classes/DatabaseDefault.cpp; sourceTree = "<group>"; };
 		D6732F1219110877009A4411 /* DatabaseDefault.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DatabaseDefault.h; path = Classes/DatabaseDefault.h; sourceTree = "<group>"; };
+		D69CCE15191A04A400FE1F00 /* hero_chan.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hero_chan.png; sourceTree = "<group>"; };
+		D69CCE16191A04A400FE1F00 /* hero_jian.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hero_jian.png; sourceTree = "<group>"; };
+		D69CCE1C191CE4EA00FE1F00 /* HeroTableLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = HeroTableLayer.cpp; path = Classes/HeroTableLayer.cpp; sourceTree = "<group>"; };
+		D69CCE1D191CE4EA00FE1F00 /* HeroTableLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HeroTableLayer.h; path = Classes/HeroTableLayer.h; sourceTree = "<group>"; };
 		D6A17241190E5794000F40DB /* DWSScence.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = DWSScence.cpp; path = Classes/DWSScence.cpp; sourceTree = "<group>"; };
 		D6A17242190E5794000F40DB /* DWSScence.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DWSScence.h; path = Classes/DWSScence.h; sourceTree = "<group>"; };
 		D6A17244190E5857000F40DB /* DWS.LOGO.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DWS.LOGO.png; sourceTree = "<group>"; };
@@ -976,6 +983,7 @@
 		D664A38218E8376B00D77821 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				D69CCE14191A04A400FE1F00 /* hero */,
 				D6A17248190FB60F000F40DB /* conf */,
 				D6CF961118F10D9E00604B62 /* image */,
 				D664A38B18E8376B00D77821 /* Icon-72.png */,
@@ -2131,8 +2139,20 @@
 				D664A71718E8377100D77821 /* HelloWorldScene.cpp */,
 				D6A17241190E5794000F40DB /* DWSScence.cpp */,
 				D6A17242190E5794000F40DB /* DWSScence.h */,
+				D69CCE1C191CE4EA00FE1F00 /* HeroTableLayer.cpp */,
+				D69CCE1D191CE4EA00FE1F00 /* HeroTableLayer.h */,
 			);
 			name = Classes;
+			sourceTree = "<group>";
+		};
+		D69CCE14191A04A400FE1F00 /* hero */ = {
+			isa = PBXGroup;
+			children = (
+				D69CCE15191A04A400FE1F00 /* hero_chan.png */,
+				D69CCE16191A04A400FE1F00 /* hero_jian.png */,
+			);
+			name = hero;
+			path = Resources/hero;
 			sourceTree = "<group>";
 		};
 		D6A17248190FB60F000F40DB /* conf */ = {
@@ -2218,6 +2238,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D69CCE17191A04A400FE1F00 /* hero_chan.png in Resources */,
 				D664A39418E8376B00D77821 /* Icon.png in Resources */,
 				D666CE311903D2D700273914 /* backButtonSelected.png in Resources */,
 				D6A17245190E5857000F40DB /* DWS.LOGO.png in Resources */,
@@ -2237,6 +2258,7 @@
 				D666CE2D1903CCE900273914 /* checkUpdateSelected.png in Resources */,
 				D6A34D6918F1736600985BD7 /* startButtonSelected.png in Resources */,
 				D6CF961918F10D9E00604B62 /* Default.png in Resources */,
+				D69CCE18191A04A400FE1F00 /* hero_jian.png in Resources */,
 				D6BA2E201909101400A066C9 /* DWS.J.png in Resources */,
 				D664A39218E8376B00D77821 /* Icon-Small@2x.png in Resources */,
 				D6A1724A190FB60F000F40DB /* database.xml in Resources */,
@@ -2376,6 +2398,7 @@
 				D664A4F718E8376E00D77821 /* ccGLStateCache.cpp in Sources */,
 				D664A3D518E8376C00D77821 /* CCCamera.cpp in Sources */,
 				D664A69018E8377000D77821 /* Json.cpp in Sources */,
+				D69CCE1E191CE4EA00FE1F00 /* HeroTableLayer.cpp in Sources */,
 				D664A55918E8376E00D77821 /* unzip.cpp in Sources */,
 				D664A62918E8376F00D77821 /* CCControlSwitch.cpp in Sources */,
 				D664A60718E8376F00D77821 /* CCComController.cpp in Sources */,

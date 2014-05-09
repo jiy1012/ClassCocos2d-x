@@ -27,10 +27,17 @@ public:
     static DatabaseDefault* shared();
     
     CCDictionary* getItemById(int itemId);
-    CCDictionary* getGroupItemById(std::string groupName);
+    CCDictionary* getGroupItemByGroupID(std::string groupName);
     
     CCDictionary* pGroupItem;
+    CCDictionary* pHeroItem;
+    CCDictionary* pLanguageItem;
+    CCDictionary* pSkillItem;
+    CCDictionary* pJobItem;
     CCDictionary* pItem;
+    const char* pLastGroupName;
+    CCDictionary* pLastGroupItem;
+    
     
 public:
     void loadDatabase();
@@ -40,4 +47,7 @@ private:
     static DatabaseDefault* s_DatabaseDefault;
     
 };
+
+
+
 #endif /* defined(__ClassCocos2d_x__DatabaseDefault__) */

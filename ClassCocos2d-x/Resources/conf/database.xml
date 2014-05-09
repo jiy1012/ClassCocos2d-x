@@ -19,16 +19,16 @@
 		<Language id="title" value="标题"/>
 	</Group>
 	<!--建筑物-->
-	<Group id="skill">
-		<skill id="1" name="du" effect="du"/>
-		<skill id="2" name="lianji" effect="lianji"/>
-		<skill id="3" name="mabi" effect="mabi"/>
-		<skill id="4" name="huifu" effect="huifu"/>
+	<Group id="Skill">
+		<Skill id="1" name="du" effect="du"/>
+		<Skill id="2" name="lianji" effect="lianji"/>
+		<Skill id="3" name="mabi" effect="mabi"/>
+		<Skill id="4" name="huifu" effect="huifu"/>
 	</Group>
-	<Group id="job">
-		<job id="1" name="wushi" skill="2" />
-		<job id="2" name="daozei" skill="3" />
-		<job id="3" name="baimofa" skill="4" />
-		<job id="4" name="heimofa" skill="1" />
+	<Group id="Job">
+		<Job id="1" name="wushi" skill="2" />
+		<Job id="2" name="daozei" skill="3" />
+		<Job id="3" name="baimofa" skill="4" />
+		<Job id="4" name="heimofa" skill="1" />
 	</Group>
 </DWS:database>

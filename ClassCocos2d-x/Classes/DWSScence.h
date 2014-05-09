@@ -15,14 +15,21 @@
 USING_NS_CC;
 USING_NS_CC_EXT;
 
-class DWSScence : public cocos2d::CCLayer
+class DWSScence : public CCLayer
 {
 public:
+    
+
+    
     CREATE_FUNC(DWSScence);
     
     CCSprite* DWSLogoDisplay(CCSize winSize);
     
     CCSprite* DWSTitleHeroDisplay(CCSize winSize);
+    
+    CCScene* DWSHeroShow();
+    
+    void HeroClick(CCObject* pSender);
     
 };
 

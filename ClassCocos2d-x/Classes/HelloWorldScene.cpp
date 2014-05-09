@@ -46,9 +46,8 @@ bool HelloWorld::init()
                                                        CCCallFuncN::create(this,callfuncN_selector(HelloWorld::logoDisplayCallback)),
                                                        NULL);
     DWSSprite->runAction(pSequence);
-    
+//    loadConfig();
     this->addChild(DWSSprite, 0);
-    HelloWorld::loadConfig();
     return true;
 }
 
@@ -119,13 +118,13 @@ void HelloWorld::titleDisplayCallback(CCNode* pNode)
     CCMenu* pMenu = CCMenu::create(pStratButton,pExitButton,pCheckVersion,NULL);
     pMenu->setPosition( CCPointZero );
     this->addChild(pMenu, 1);
+//    
+//    CCLabelTTF* pLabel = CCLabelTTF::create("大战", "Thonburi", 50);
+//    pLabel->setPosition( ccp(winSize.width/2, winSize.height*3/4) );
+//    this->addChild(pLabel, 2);
     
-    CCLabelTTF* pLabel = CCLabelTTF::create("大战", "Thonburi", 50);
-    pLabel->setPosition( ccp(winSize.width/2, winSize.height*3/4) );
-    this->addChild(pLabel, 2);
-    
-    CCSprite* DWSHeroTitle = DWS->DWSTitleHeroDisplay(winSize);
-    this->addChild(DWSHeroTitle,2);
+//    CCSprite* DWSHeroTitle = DWS->DWSTitleHeroDisplay(winSize);
+//    this->addChild(DWSHeroTitle,2);
     
     std::string labelV = "当前版本："+version;
     CCLabelTTF* pLabelV = CCLabelTTF::create(labelV.c_str(), "Thonburi", 25);
@@ -134,37 +133,44 @@ void HelloWorld::titleDisplayCallback(CCNode* pNode)
 
 }
 
+//void HelloWorld::startGame(CCObject* pSender)
+//{
+//    CCLog("start game");
+//    
+//    CCMenuItemImage* pStartButton = (CCMenuItemImage*) pSender;
+//    
+//    int X = rand();
+//    int Y = rand();
+//    X = X%(int) (winSize.width - pStartButton->getContentSize().width/2);
+//    Y = Y%(int) (winSize.height - pStartButton->getContentSize().height/2);
+//    /*
+//     X:pStartButton->getContentSize().width/2~winSize.width-pStartButton->getContentSize().width/2
+//     Y:pStartButton->getContentSize().height/2~winSize.height-pStartButton->getContentSize().height/2
+//     */
+//    if (X < pStartButton->getContentSize().width/2) {
+//        X = pStartButton->getContentSize().width/2;
+//    }
+//    if (Y < pStartButton->getContentSize().height/2) {
+//        Y = pStartButton->getContentSize().height/2;
+//    }
+////    CCLog("X:%d , Y:%d" , X,Y);
+////    pStartButton->setPosition(ccp( X, Y));
+//}
+
 void HelloWorld::startGame(CCObject* pSender)
 {
     CCLog("start game");
-    
-    CCMenuItemImage* pStartButton = (CCMenuItemImage*) pSender;
-    
-    int X = rand();
-    int Y = rand();
-    X = X%(int) (winSize.width - pStartButton->getContentSize().width/2);
-    Y = Y%(int) (winSize.height - pStartButton->getContentSize().height/2);
-    /*
-     X:pStartButton->getContentSize().width/2~winSize.width-pStartButton->getContentSize().width/2
-     Y:pStartButton->getContentSize().height/2~winSize.height-pStartButton->getContentSize().height/2
-     */
-    if (X < pStartButton->getContentSize().width/2) {
-        X = pStartButton->getContentSize().width/2;
-    }
-    if (Y < pStartButton->getContentSize().height/2) {
-        Y = pStartButton->getContentSize().height/2;
-    }
-//    CCLog("X:%d , Y:%d" , X,Y);
-    pStartButton->setPosition(ccp( X, Y));
+    CCScene* heroAll = DWS->DWSHeroShow();
+    CCDirector::sharedDirector()->pushScene(heroAll);
 }
 
+void HelloWorld::HeroClick(CCObject* pSender)
+{
+    CCLog("hero click");
+}
 void HelloWorld::loadConfig()
 {
     CCLog("load config xml");
-//    DatabaseDefault::shared();
-    
-      
-    
 }
 void HelloWorld::checkUpdate(CCObject* pSender)
 {

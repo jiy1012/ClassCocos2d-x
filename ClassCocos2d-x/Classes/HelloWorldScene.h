@@ -29,6 +29,8 @@ public:
     
     void backCallback(CCObject* pSender);
     
+    void HeroClick(CCObject* pSender);
+    
     void checkUpdate(CCObject* pSender);
     void checkUpdateResponse(CCHttpClient *sender, CCHttpResponse *response);
     // a selector callback
