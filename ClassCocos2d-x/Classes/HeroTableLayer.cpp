@@ -36,7 +36,7 @@ bool HeroTableLayer::init()
     
     CCTableView* tableView = CCTableView::create(this, CCSizeMake(winSize.width/5*4, winSize.height/2));
     tableView->setDirection(kCCScrollViewDirectionHorizontal);
-    tableView->setPosition(ccp(20,winSize.height/2-30));
+    tableView->setPosition(ccp(0 , winSize.height/2));
     tableView->setDelegate(this);
     this->addChild(tableView);
     tableView->reloadData();
@@ -55,6 +55,7 @@ void HeroTableLayer::tableCellTouched(CCTableView* table, CCTableViewCell* cell)
     if (heroID == hero1 || heroID == hero2) {
         return ;
     }
+    CCSize winSize = CCDirector::sharedDirector()->getWinSize();
     CCDictionary* groupHero = DatabaseDefault::shared()->getGroupItemByGroupID("Hero");
     CCDictionary* oneHero = (CCDictionary*) groupHero->objectForKey(heroID);
     
@@ -64,15 +65,15 @@ void HeroTableLayer::tableCellTouched(CCTableView* table, CCTableViewCell* cell)
     
     if (hero1 == 0) {
         hero1 = heroID;
-        heroButton->setPosition(ccp(0, 100));
+        heroButton->setPosition(ccp(winSize.width/2-heroButton->getContentSize().width, 0));
     }else if (hero2 == 0){
         hero2 = heroID;
-        heroButton->setPosition(ccp(200, 100));
+        heroButton->setPosition(ccp(winSize.width/2+heroButton->getContentSize().width, 0));
     }
     CCLOG("hero1:%d hero2:%d" ,hero1,hero2);
     
     CCMenu* hMenu = CCMenu::create(heroButton,NULL);
-    hMenu->setPosition( ccp(0, 200) );
+    hMenu->setPosition( ccp(0, winSize.height/2-heroButton->getContentSize().height) );
     this->addChild(hMenu);
     
     
@@ -110,7 +111,7 @@ CCTableViewCell* HeroTableLayer::tableCellAtIndex(CCTableView *table, unsigned i
     cell->addChild(sprite);
         
     CCLabelTTF *label = CCLabelTTF::create(name, "Helvetica", 20.0);
-    label->setPosition(ccp(0,100));
+    label->setPosition(ccp(0,sprite->getContentSize().height));
     label->setAnchorPoint(CCPointZero);
     cell->addChild(label);
     
