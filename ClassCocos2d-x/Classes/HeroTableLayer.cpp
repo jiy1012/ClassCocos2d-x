@@ -7,17 +7,21 @@
 //
 
 #include "HeroTableLayer.h"
-
+#include "DatabaseDefault.h"
 
 USING_NS_CC;
 USING_NS_CC_EXT;
 
-void runTableViewTest()
+int HeroTableLayer::preHeroid = 100;
+
+HeroTableLayer::HeroTableLayer()
 {
-	CCScene *pScene = CCScene::create();
-	HeroTableLayer *pLayer = HeroTableLayer::create();
-	pScene->addChild(pLayer);
-	CCDirector::sharedDirector()->replaceScene(pScene);
+    hero1 = 0;
+    hero2 = 0;
+}
+
+HeroTableLayer::~HeroTableLayer()
+{
 }
 
 // on "init" you need to initialize your instance
@@ -43,43 +47,79 @@ bool HeroTableLayer::init()
 
 void HeroTableLayer::tableCellTouched(CCTableView* table, CCTableViewCell* cell)
 {
-    CCLOG("cell touched at index: %i", cell->getIdx());
+    int heroID = cell->getIdx()+preHeroid;
+    CCLOG("cell touched at index: %i", cell->getIdx()+preHeroid);
+    if (hero1 != 0 && hero2 != 0) {
+        return ;
+    }
+    if (heroID == hero1 || heroID == hero2) {
+        return ;
+    }
+    CCDictionary* groupHero = DatabaseDefault::shared()->getGroupItemByGroupID("Hero");
+    CCDictionary* oneHero = (CCDictionary*) groupHero->objectForKey(heroID);
+    
+    const char* name = ((CCString*) oneHero->objectForKey("name"))->getCString();
+    
+    CCMenuItemImage* heroButton = CCMenuItemImage::create(CCString::createWithFormat("hero_%s.png",name)->getCString(), CCString::createWithFormat("hero_%s.png",name)->getCString(), this, menu_selector(HeroTableLayer::HeroSelect));
+    
+    if (hero1 == 0) {
+        hero1 = heroID;
+        heroButton->setPosition(ccp(0, 100));
+    }else if (hero2 == 0){
+        hero2 = heroID;
+        heroButton->setPosition(ccp(200, 100));
+    }
+    CCLOG("hero1:%d hero2:%d" ,hero1,hero2);
+    
+    CCMenu* hMenu = CCMenu::create(heroButton,NULL);
+    hMenu->setPosition( ccp(0, 200) );
+    this->addChild(hMenu);
+    
+    
+}
+
+void HeroTableLayer::HeroSelect(CCObject* pSender)
+{
+    CCLog("select hero");
+
 }
 
 CCSize HeroTableLayer::tableCellSizeForIndex(CCTableView *table, unsigned int idx)
 {
-    return CCSizeMake(60, 60);
+    return CCSizeMake(200, 200);
 }
 
 CCTableViewCell* HeroTableLayer::tableCellAtIndex(CCTableView *table, unsigned int idx)
 {
-    CCString *string = CCString::createWithFormat("%d", idx);
-    CCTableViewCell *cell = table->dequeueCell();
-    if (!cell) {
-        cell = new CCTableViewCell();
-        cell->autorelease();
-        CCSprite *sprite = CCSprite::create("Icon.png");
-        sprite->setAnchorPoint(CCPointZero);
-        sprite->setPosition(ccp(0, 0));
-        cell->addChild(sprite);
-        
-        CCLabelTTF *label = CCLabelTTF::create(string->getCString(), "Helvetica", 20.0);
-        label->setPosition(CCPointZero);
-		label->setAnchorPoint(CCPointZero);
-        label->setTag(123);
-        cell->addChild(label);
-    }
-    else
-    {
-        CCLabelTTF *label = (CCLabelTTF*)cell->getChildByTag(123);
-        label->setString(string->getCString());
-    }
+    CCString *string = CCString::createWithFormat("%d", idx+preHeroid);
+
+    CCDictionary* groupHero = DatabaseDefault::shared()->getGroupItemByGroupID("Hero");
+    CCDictionary* oneHero = (CCDictionary*) groupHero->objectForKey(string->intValue());
     
+    const char* name = ((CCString*) oneHero->objectForKey("name"))->getCString();
+//    const char* heroImage = CCString::createWithFormat("hero_%s.png",name)->getCString();
+    
+    CCTableViewCell *cell = table->dequeueCell();
+
+    cell = new CCTableViewCell();
+    cell->autorelease();
+    CCSprite *sprite = CCSprite::create(CCString::createWithFormat("hero_%s.png",name)->getCString());
+//    CCLOG("img : %s",heroImage);
+    sprite->setAnchorPoint(CCPointZero);
+    sprite->setPosition(ccp(0, 0));
+    cell->addChild(sprite);
+        
+    CCLabelTTF *label = CCLabelTTF::create(name, "Helvetica", 20.0);
+    label->setPosition(ccp(0,100));
+    label->setAnchorPoint(CCPointZero);
+    cell->addChild(label);
     
     return cell;
 }
 
 unsigned int HeroTableLayer::numberOfCellsInTableView(CCTableView *table)
 {
-    return 20;
+    CCDictionary* groupHero = DatabaseDefault::shared()->getGroupItemByGroupID("Hero");
+//    CCLog("numberOfCellsInTableView:%d",groupHero->count());
+    return groupHero->count();
 }

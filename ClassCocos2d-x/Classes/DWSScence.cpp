@@ -64,6 +64,13 @@ CCScene* DWSScence::DWSHeroShow()
 
     CCScene* heroAll = CCScene::create();
     HeroTableLayer* layer = HeroTableLayer::create();
+    
+    CCMenuItemImage* backButton = CCMenuItemImage::create("backButton.png", "backButtonSelected.png", heroAll, menu_selector(DWSScence::HeroClick));
+    backButton->setPosition(ccp(backButton->getContentSize().width, backButton->getContentSize().height));
+
+    CCMenu* bMenu = CCMenu::create(backButton,NULL);
+    bMenu->setPosition( CCPointZero );
+    heroAll->addChild(bMenu);
     heroAll->addChild(layer);
     
     

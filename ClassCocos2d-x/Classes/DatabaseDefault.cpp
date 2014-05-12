@@ -90,10 +90,13 @@ void DatabaseDefault::paraXml(XMLElement* Element)
                 CCLog("H:%s %d %d",pLastGroupName,dictAttr->count(),dictAttr->valueForKey("id")->intValue());
                 pHeroItem->setObject(dictAttr, dictAttr->valueForKey("id")->intValue());
             }else if (strcmp(pLastGroupName, "Language") == 0){
+                CCLog("L:%s %d %d",pLastGroupName,dictAttr->count(),dictAttr->valueForKey("id")->intValue());
                 pLanguageItem->setObject(dictRoot, dictAttr->valueForKey("id")->intValue());
             }else if (strcmp(pLastGroupName, "Skill") == 0){
+                CCLog("S:%s %d %d",pLastGroupName,dictAttr->count(),dictAttr->valueForKey("id")->intValue());
                 pSkillItem->setObject(dictRoot, dictAttr->valueForKey("id")->intValue());
             }else if (strcmp(pLastGroupName, "Job") == 0){
+                CCLog("J:%s %d %d",pLastGroupName,dictAttr->count(),dictAttr->valueForKey("id")->intValue());
                 pJobItem->setObject(dictRoot, dictAttr->valueForKey("id")->intValue());
             }
 //            if (strcmp(pLastGroupName, "")!=0) {

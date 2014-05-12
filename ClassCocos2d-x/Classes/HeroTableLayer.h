@@ -16,6 +16,9 @@
 class HeroTableLayer : public cocos2d::CCLayer, public cocos2d::extension::CCTableViewDataSource, public cocos2d::extension::CCTableViewDelegate
 {
 public:
+    HeroTableLayer();
+    ~HeroTableLayer();
+    
     virtual bool init();
     
   
@@ -27,5 +30,12 @@ public:
     virtual cocos2d::CCSize tableCellSizeForIndex(cocos2d::extension::CCTableView *table, unsigned int idx);
     virtual cocos2d::extension::CCTableViewCell* tableCellAtIndex(cocos2d::extension::CCTableView *table, unsigned int idx);
     virtual unsigned int numberOfCellsInTableView(cocos2d::extension::CCTableView *table);
+    
+    void HeroSelect(CCObject* pSender);
+    
+    static int preHeroid;
+    
+    int hero1;
+    int hero2;
 };
 #endif /* defined(__ClassCocos2d_x__HeroTableLayer__) */
