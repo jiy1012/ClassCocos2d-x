@@ -31,7 +31,9 @@ public:
     virtual cocos2d::extension::CCTableViewCell* tableCellAtIndex(cocos2d::extension::CCTableView *table, unsigned int idx);
     virtual unsigned int numberOfCellsInTableView(cocos2d::extension::CCTableView *table);
     
-    void HeroSelect(CCObject* pSender);
+    void heroSelect(CCObject* pSender);
+    void heroCancel(CCObject* pSender);
+    void startPK(CCObject* pSender);
     
     static int preHeroid;
     

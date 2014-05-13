@@ -61,7 +61,8 @@ CCSprite* DWSScence::DWSTitleHeroDisplay(CCSize winSize)
 
 CCScene* DWSScence::DWSHeroShow()
 {
-
+    
+    CCSize winSize = CCDirector::sharedDirector()->getVisibleSize();
     CCScene* heroAll = CCScene::create();
     HeroTableLayer* layer = HeroTableLayer::create();
     
@@ -71,6 +72,9 @@ CCScene* DWSScence::DWSHeroShow()
     CCMenu* bMenu = CCMenu::create(backButton,NULL);
     bMenu->setPosition( CCPointZero );
     heroAll->addChild(bMenu);
+    CCLabelTTF* pk = CCLabelTTF::create("PK", "", 50);
+    pk->setPosition(ccp(winSize.width/2, winSize.height/3*1));
+    heroAll->addChild(pk);
     heroAll->addChild(layer);
     
     

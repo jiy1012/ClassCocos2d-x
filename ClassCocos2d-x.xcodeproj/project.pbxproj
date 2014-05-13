@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D63A269F19224B0100FD252A /* startPKButton.png in Resources */ = {isa = PBXBuildFile; fileRef = D63A269D19224B0100FD252A /* startPKButton.png */; };
+		D63A26A019224B0100FD252A /* startPKButtonSelected.png in Resources */ = {isa = PBXBuildFile; fileRef = D63A269E19224B0100FD252A /* startPKButtonSelected.png */; };
 		D664A37218E8376B00D77821 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D664A37118E8376B00D77821 /* QuartzCore.framework */; };
 		D664A37418E8376B00D77821 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D664A37318E8376B00D77821 /* OpenGLES.framework */; };
 		D664A37618E8376B00D77821 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D664A37518E8376B00D77821 /* OpenAL.framework */; };
@@ -310,6 +312,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D63A269D19224B0100FD252A /* startPKButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = startPKButton.png; sourceTree = "<group>"; };
+		D63A269E19224B0100FD252A /* startPKButtonSelected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = startPKButtonSelected.png; sourceTree = "<group>"; };
 		D664A36E18E8376B00D77821 /* ClassCocos2d-x.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ClassCocos2d-x.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D664A37118E8376B00D77821 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		D664A37318E8376B00D77821 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -2194,6 +2198,8 @@
 		D6CF961118F10D9E00604B62 /* image */ = {
 			isa = PBXGroup;
 			children = (
+				D63A269D19224B0100FD252A /* startPKButton.png */,
+				D63A269E19224B0100FD252A /* startPKButtonSelected.png */,
 				D6A17244190E5857000F40DB /* DWS.LOGO.png */,
 				D6BA2E1D1909101400A066C9 /* DWS.C.png */,
 				D6BA2E1E1909101400A066C9 /* DWS.J.png */,
@@ -2290,6 +2296,7 @@
 				D664A39818E8376B00D77821 /* iTunesArtwork in Resources */,
 				D666CE2D1903CCE900273914 /* checkUpdateSelected.png in Resources */,
 				D6A34D6918F1736600985BD7 /* startButtonSelected.png in Resources */,
+				D63A26A019224B0100FD252A /* startPKButtonSelected.png in Resources */,
 				D6D838E31920C9D20044C567 /* hero_tuiqun.png in Resources */,
 				D6CF961918F10D9E00604B62 /* Default.png in Resources */,
 				D6D838DF1920C9D20044C567 /* hero_jblong.png in Resources */,
@@ -2302,6 +2309,7 @@
 				D664A39618E8376B00D77821 /* Icon@2x.png in Resources */,
 				D664A5AB18E8376F00D77821 /* project.pbxproj in Resources */,
 				D6CF961B18F10D9E00604B62 /* mydraw.jpg in Resources */,
+				D63A269F19224B0100FD252A /* startPKButton.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2652,7 +2660,6 @@
 					"-lxml2",
 					"-lz",
 					"-lsqlite3",
-					"-websockets",
 				);
 				PRODUCT_NAME = "ClassCocos2d-x";
 				USER_HEADER_SEARCH_PATHS = "\"ClassCocos2d-x/libs/Chipmunk/include/chipmunk\"";
@@ -2679,7 +2686,6 @@
 					"-lxml2",
 					"-lz",
 					"-lsqlite3",
-					"-websockets",
 				);
 				PRODUCT_NAME = "ClassCocos2d-x";
 				USER_HEADER_SEARCH_PATHS = "\"ClassCocos2d-x/libs/Chipmunk/include/chipmunk\"";

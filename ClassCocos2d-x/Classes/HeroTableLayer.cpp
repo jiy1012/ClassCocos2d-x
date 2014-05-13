@@ -61,28 +61,59 @@ void HeroTableLayer::tableCellTouched(CCTableView* table, CCTableViewCell* cell)
     
     const char* name = ((CCString*) oneHero->objectForKey("name"))->getCString();
     
-    CCMenuItemImage* heroButton = CCMenuItemImage::create(CCString::createWithFormat("hero_%s.png",name)->getCString(), CCString::createWithFormat("hero_%s.png",name)->getCString(), this, menu_selector(HeroTableLayer::HeroSelect));
+    CCMenuItemImage* heroButton = CCMenuItemImage::create(CCString::createWithFormat("hero_%s.png",name)->getCString(), CCString::createWithFormat("hero_%s.png",name)->getCString(), this, menu_selector(HeroTableLayer::heroCancel));
     
     if (hero1 == 0) {
         hero1 = heroID;
         heroButton->setPosition(ccp(winSize.width/2-heroButton->getContentSize().width, 0));
+        heroButton->setTag(1);
     }else if (hero2 == 0){
         hero2 = heroID;
         heroButton->setPosition(ccp(winSize.width/2+heroButton->getContentSize().width, 0));
+        heroButton->setTag(2);
     }
     CCLOG("hero1:%d hero2:%d" ,hero1,hero2);
+    if (0!=hero1 && 0 != hero2) {
+        CCMenuItemImage* pStratButton = CCMenuItemImage::create("startPKButton.png", "startPKButtonSelected.png", this, menu_selector(HeroTableLayer::startPK));
+
+        pStratButton->setPosition(ccp(winSize.width/2, -winSize.height/4));
+
+        CCMenu* hMenu = CCMenu::create(heroButton,pStratButton,NULL);
+        hMenu->setPosition( ccp(0, winSize.height/2-heroButton->getContentSize().height) );
+        this->addChild(hMenu);
+    }else{
+        CCMenu* hMenu = CCMenu::create(heroButton,NULL);
+        hMenu->setPosition( ccp(0, winSize.height/2-heroButton->getContentSize().height) );
+        this->addChild(hMenu);
+    }
     
-    CCMenu* hMenu = CCMenu::create(heroButton,NULL);
-    hMenu->setPosition( ccp(0, winSize.height/2-heroButton->getContentSize().height) );
-    this->addChild(hMenu);
+
     
     
 }
 
-void HeroTableLayer::HeroSelect(CCObject* pSender)
+void HeroTableLayer::heroSelect(CCObject* pSender)
 {
-    CCLog("select hero");
 
+
+}
+void HeroTableLayer::startPK(CCObject* pSender)
+{
+    CCLOG("startPK hero1:%d hero2:%d" ,hero1,hero2);
+    
+}
+void HeroTableLayer::heroCancel(CCObject* pSender)
+{
+    CCMenu* selected = (CCMenu*) pSender;
+    ;
+    if (1 == selected->getTag()) {
+        hero1 = 0;
+    }else{
+        hero2 = 0;
+    }
+    selected->removeFromParent();
+    CCLog("cancel hero ");
+    
 }
 
 CCSize HeroTableLayer::tableCellSizeForIndex(CCTableView *table, unsigned int idx)
