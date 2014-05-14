@@ -135,10 +135,10 @@ CCTableViewCell* HeroTableLayer::tableCellAtIndex(CCTableView *table, unsigned i
 
     cell = new CCTableViewCell();
     cell->autorelease();
-    CCLOG("sprite:%s",heroImage);
-    CCSprite* sprite = CCSprite::create("hero_xiaoyi.png");
+//    CCLOG("sprite:%s",heroImage);
+    CCSprite* sprite = CCSprite::create(heroImage);
 //    CCLOG("img : %s",heroImage);
-    CCLOG("sprite:%f %f",sprite->getContentSize().width,sprite->getContentSize().height);
+//    CCLOG("sprite:%f %f",sprite->getContentSize().width,sprite->getContentSize().height);
     
     sprite->setAnchorPoint(CCPointZero);
     sprite->setPosition(ccp(0, 0));
