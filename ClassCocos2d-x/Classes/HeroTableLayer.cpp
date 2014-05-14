@@ -18,6 +18,7 @@ HeroTableLayer::HeroTableLayer()
 {
     hero1 = 0;
     hero2 = 0;
+    heroCount = 0;
 }
 
 HeroTableLayer::~HeroTableLayer()
@@ -124,19 +125,21 @@ CCSize HeroTableLayer::tableCellSizeForIndex(CCTableView *table, unsigned int id
 CCTableViewCell* HeroTableLayer::tableCellAtIndex(CCTableView *table, unsigned int idx)
 {
     CCString *string = CCString::createWithFormat("%d", idx+preHeroid);
-
     CCDictionary* groupHero = DatabaseDefault::shared()->getGroupItemByGroupID("Hero");
     CCDictionary* oneHero = (CCDictionary*) groupHero->objectForKey(string->intValue());
     
     const char* name = ((CCString*) oneHero->objectForKey("name"))->getCString();
-//    const char* heroImage = CCString::createWithFormat("hero_%s.png",name)->getCString();
+    const char* heroImage = CCString::createWithFormat("hero_%s.png",name)->getCString();
     
     CCTableViewCell *cell = table->dequeueCell();
 
     cell = new CCTableViewCell();
     cell->autorelease();
-    CCSprite *sprite = CCSprite::create(CCString::createWithFormat("hero_%s.png",name)->getCString());
+    CCLOG("sprite:%s",heroImage);
+    CCSprite* sprite = CCSprite::create("hero_xiaoyi.png");
 //    CCLOG("img : %s",heroImage);
+    CCLOG("sprite:%f %f",sprite->getContentSize().width,sprite->getContentSize().height);
+    
     sprite->setAnchorPoint(CCPointZero);
     sprite->setPosition(ccp(0, 0));
     cell->addChild(sprite);
@@ -151,7 +154,14 @@ CCTableViewCell* HeroTableLayer::tableCellAtIndex(CCTableView *table, unsigned i
 
 unsigned int HeroTableLayer::numberOfCellsInTableView(CCTableView *table)
 {
-    CCDictionary* groupHero = DatabaseDefault::shared()->getGroupItemByGroupID("Hero");
+    if (heroCount == 0) {
+        CCDictionary* groupHero = DatabaseDefault::shared()->getGroupItemByGroupID("Hero");
+        heroCount = groupHero->count();
+    }
+    return heroCount;
+//    CCLOG("xml Hero start");
+//    CCDictionary* groupHero = DatabaseDefault::shared()->getGroupItemByGroupID("Hero");
+//    CCLOG("xml Hero end");
 //    CCLog("numberOfCellsInTableView:%d",groupHero->count());
-    return groupHero->count();
+//    return groupHero->count();
 }

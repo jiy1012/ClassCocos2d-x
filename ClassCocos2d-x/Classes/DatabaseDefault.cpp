@@ -50,9 +50,15 @@ DatabaseDefault* DatabaseDefault::shared()
 
 void DatabaseDefault::loadDatabase()
 {
-    std::string  path = CCFileUtils::sharedFileUtils()->fullPathForFilename("database.xml");
+    
+
+    
+    unsigned long contentSize = 0;
+    unsigned char*  xmlContent = CCFileUtils::sharedFileUtils()->getFileData("database.xml", "r", &contentSize);
+//    std::string  path = CCFileUtils::sharedFileUtils()->fullPathForFilename("database.xml");
     XMLDocument xml;
-    xml.LoadFile(path.c_str());
+//    xml.LoadFile(path.c_str());
+    xml.Parse((const char*)xmlContent,contentSize);
     
     XMLElement* rootElement = xml.RootElement();
     XMLElement* groupElement = rootElement->FirstChildElement();

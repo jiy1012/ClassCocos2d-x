@@ -2153,14 +2153,14 @@
 		D664A71218E8377100D77821 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				D664A71418E8377100D77821 /* AppDelegate.cpp */,
+				D664A71318E8377100D77821 /* AppDelegate.h */,
 				D6732F1119110877009A4411 /* DatabaseDefault.cpp */,
 				D6732F1219110877009A4411 /* DatabaseDefault.h */,
-				D664A71318E8377100D77821 /* AppDelegate.h */,
-				D664A71418E8377100D77821 /* AppDelegate.cpp */,
-				D664A71618E8377100D77821 /* HelloWorldScene.h */,
-				D664A71718E8377100D77821 /* HelloWorldScene.cpp */,
 				D6A17241190E5794000F40DB /* DWSScence.cpp */,
 				D6A17242190E5794000F40DB /* DWSScence.h */,
+				D664A71718E8377100D77821 /* HelloWorldScene.cpp */,
+				D664A71618E8377100D77821 /* HelloWorldScene.h */,
 				D69CCE1C191CE4EA00FE1F00 /* HeroTableLayer.cpp */,
 				D69CCE1D191CE4EA00FE1F00 /* HeroTableLayer.h */,
 			);

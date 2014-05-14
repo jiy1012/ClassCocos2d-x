@@ -37,6 +37,8 @@ public:
     
     static int preHeroid;
     
+    int heroCount;
+    
     int hero1;
     int hero2;
 };
