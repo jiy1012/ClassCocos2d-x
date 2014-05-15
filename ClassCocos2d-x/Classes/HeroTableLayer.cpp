@@ -74,19 +74,19 @@ void HeroTableLayer::tableCellTouched(CCTableView* table, CCTableViewCell* cell)
         heroButton->setTag(2);
     }
     CCLOG("hero1:%d hero2:%d" ,hero1,hero2);
-    if (0!=hero1 && 0 != hero2) {
-        CCMenuItemImage* pStratButton = CCMenuItemImage::create("startPKButton.png", "startPKButtonSelected.png", this, menu_selector(HeroTableLayer::startPK));
-
-        pStratButton->setPosition(ccp(winSize.width/2, -winSize.height/4));
-
-        CCMenu* hMenu = CCMenu::create(heroButton,pStratButton,NULL);
-        hMenu->setPosition( ccp(0, winSize.height/2-heroButton->getContentSize().height) );
-        this->addChild(hMenu);
-    }else{
+//    if (0!=hero1 && 0 != hero2) {
+//        CCMenuItemImage* pStratButton = CCMenuItemImage::create("startPKButton.png", "startPKButtonSelected.png", this, menu_selector(HeroTableLayer::startPK));
+//
+//        pStratButton->setPosition(ccp(winSize.width/2, -winSize.height/4));
+//
+//        CCMenu* hMenu = CCMenu::create(heroButton,pStratButton,NULL);
+//        hMenu->setPosition( ccp(0, winSize.height/2-heroButton->getContentSize().height) );
+//        this->addChild(hMenu);
+//    }else{
         CCMenu* hMenu = CCMenu::create(heroButton,NULL);
         hMenu->setPosition( ccp(0, winSize.height/2-heroButton->getContentSize().height) );
         this->addChild(hMenu);
-    }
+//    }
     
 
     
@@ -112,9 +112,9 @@ void HeroTableLayer::heroCancel(CCObject* pSender)
     }else{
         hero2 = 0;
     }
-    selected->removeFromParent();
-    CCLog("cancel hero ");
     
+    CCLog("cancel hero %d",selected->getTag());
+    selected->removeFromParent();    
 }
 
 CCSize HeroTableLayer::tableCellSizeForIndex(CCTableView *table, unsigned int idx)

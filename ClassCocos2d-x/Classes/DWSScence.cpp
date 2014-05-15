@@ -67,13 +67,18 @@ CCScene* DWSScence::DWSHeroShow()
     HeroTableLayer* layer = HeroTableLayer::create();
     
     CCMenuItemImage* backButton = CCMenuItemImage::create("backButton.png", "backButtonSelected.png", heroAll, menu_selector(DWSScence::HeroClick));
-    backButton->setPosition(ccp(backButton->getContentSize().width, backButton->getContentSize().height));
-
-    CCMenu* bMenu = CCMenu::create(backButton,NULL);
+    CCMenuItemImage* stratPKButton = CCMenuItemImage::create("startPKButton.png", "startPKButtonSelected.png", layer, menu_selector(HeroTableLayer::startPK));
+    
+    backButton->setPosition(ccp(backButton->getContentSize().width, backButton->getContentSize().height/2));
+    stratPKButton->setPosition(ccp(winSize.width/2, stratPKButton->getContentSize().height/2));
+    
+    CCMenu* bMenu = CCMenu::create(backButton,stratPKButton,NULL);
+    
     bMenu->setPosition( CCPointZero );
     heroAll->addChild(bMenu);
     CCLabelTTF* pk = CCLabelTTF::create("PK", "", 50);
     pk->setPosition(ccp(winSize.width/2, winSize.height/3*1));
+    
     heroAll->addChild(pk);
     heroAll->addChild(layer);
     
