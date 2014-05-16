@@ -11,7 +11,7 @@
 
 #include "cocos2d.h"
 #include "cocos-ext.h"
-
+#include "HeroStruct.h"
 
 class HeroTableLayer : public cocos2d::CCLayer, public cocos2d::extension::CCTableViewDataSource, public cocos2d::extension::CCTableViewDelegate
 {
@@ -41,5 +41,8 @@ public:
     
     int hero1;
     int hero2;
+    
+    HeroStruct* heroStruct1;
+    HeroStruct* heroStruct2;
 };
 #endif /* defined(__ClassCocos2d_x__HeroTableLayer__) */

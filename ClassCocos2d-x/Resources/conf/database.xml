@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <DWS:database xmlns:DWS="http://5461.sinapp.com/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<Group id="Hero" type="conf">
-		<Hero id="100" name="chan" attack="10" defense="10" crit="10"/>
-		<Hero id="101" name="jian" attack="11" defense="10" crit="10"/>
-		<Hero id="102" name="ss" attack="12" defense="10" crit="10"/>
-		<Hero id="103" name="xiaoshuang" attack="13" defense="10" crit="10"/>
-		<Hero id="104" name="hezimei" attack="14" defense="10" crit="10"/>
-		<Hero id="105" name="tuiqun" attack="15" defense="10" crit="10"/>
-		<Hero id="106" name="jiangnima" attack="16" defense="10" crit="10"/>
-		<Hero id="107" name="sbcaicai" attack="17" defense="10" crit="10"/>
-		<Hero id="108" name="xiaoyi" attack="18" defense="10" crit="10"/>
-		<Hero id="109" name="jblong" attack="19" defense="10" crit="10"/>
-		<Hero id="110" name="Yi" attack="99" defense="99" crit="99"/>
+		<Hero id="100" name="chan" q="10" w="10" e="10" r="10" attackQ="10" attackW="10" attackE="10" attackR="10" defense="10"/>
+		<Hero id="101" name="jian" q="10" w="10" e="10" r="10" attackQ="10" attackW="10" attackE="10" attackR="10" defense="10"/>
+		<Hero id="102" name="ss" q="10" w="10" e="10" r="10" attackQ="10" attackW="10" attackE="10" attackR="10" defense="10"/>
+		<Hero id="103" name="xiaoshuang" q="10" w="10" e="10" r="10" attackQ="10" attackW="10" attackE="10" attackR="10" defense="10"/>
+		<Hero id="104" name="hezimei" q="10" w="10" e="10" r="10" attackQ="10" attackW="10" attackE="10" attackR="10" defense="10"/>
+		<Hero id="105" name="tuiqun" q="10" w="10" e="10" r="10" attackQ="10" attackW="10" attackE="10" attackR="10" defense="10"/>
+		<Hero id="106" name="jiangnima" q="10" w="10" e="10" r="10" attackQ="10" attackW="10" attackE="10" attackR="10" defense="10"/>
+		<Hero id="107" name="sbcaicai" q="10" w="10" e="10" r="10" attackQ="10" attackW="10" attackE="10" attackR="10" defense="10"/>
+		<Hero id="108" name="xiaoyi" q="10" w="10" e="10" r="10" attackQ="10" attackW="10" attackE="10" attackR="10" defense="10"/>
+		<Hero id="109" name="jblong" q="10" w="10" e="10" r="10" attackQ="10" attackW="10" attackE="10" attackR="10" defense="10"/>
+		<Hero id="110" name="Yi"  q="10" w="10" e="10" r="10" attackQ="10" attackW="10" attackE="10" attackR="10" defense="10"/>
 	</Group>
 
 	<!-- 物品 可以放在背包里的物品  -->

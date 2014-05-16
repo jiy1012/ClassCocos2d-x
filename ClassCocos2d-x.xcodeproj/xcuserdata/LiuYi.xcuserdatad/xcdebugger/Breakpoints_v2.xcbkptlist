@@ -19,5 +19,97 @@
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ClassCocos2d-x/Classes/Struct/HeroStruct.cpp"
+            timestampString = "421927438.659697"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "15"
+            endingLineNumber = "15"
+            landmarkName = "HeroStruct::setData(CCDictionary* pDictData)"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "HeroStruct::setData(cocos2d::CCDictionary*)"
+                  moduleName = "ClassCocos2d-x"
+                  urlString = "file:///Users/liuyi/Documents/PROJECTS/ClassCocos2d-x/ClassCocos2d-x/Classes/Struct/HeroStruct.cpp"
+                  timestampString = "421931106.125768"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "15"
+                  endingLineNumber = "15"
+                  offsetFromSymbolStart = "707">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "HeroStruct::setData(cocos2d::CCDictionary*)"
+                  moduleName = "ClassCocos2d-x"
+                  urlString = "file:///Users/liuyi/Documents/PROJECTS/ClassCocos2d-x/ClassCocos2d-x/Classes/Struct/HeroStruct.cpp"
+                  timestampString = "421931106.126221"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "15"
+                  endingLineNumber = "15"
+                  offsetFromSymbolStart = "924">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "HeroStruct::setData(cocos2d::CCDictionary*)"
+                  moduleName = "ClassCocos2d-x"
+                  urlString = "file:///Users/liuyi/Documents/PROJECTS/ClassCocos2d-x/ClassCocos2d-x/Classes/Struct/HeroStruct.cpp"
+                  timestampString = "421931106.12658"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "15"
+                  endingLineNumber = "15"
+                  offsetFromSymbolStart = "940">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ClassCocos2d-x/Classes/DWSScence.cpp"
+            timestampString = "421930774.460935"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "128"
+            endingLineNumber = "128"
+            landmarkName = "DWSScence::startPK(CCObject* pSender)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ClassCocos2d-x/Classes/DWSScence.cpp"
+            timestampString = "421931031.733728"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "77"
+            endingLineNumber = "77"
+            landmarkName = "DWSScence::DWSHeroShow()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

@@ -11,6 +11,7 @@
 
 #include "cocos2d.h"
 #include "cocos-ext.h"
+#include "HeroTableLayer.h"
 
 USING_NS_CC;
 USING_NS_CC_EXT;
@@ -19,7 +20,8 @@ class DWSScence : public CCLayer
 {
 public:
     
-
+//    DWSScence();
+//    ~DWSScence();
     
     CREATE_FUNC(DWSScence);
     
@@ -29,7 +31,8 @@ public:
     
     CCScene* DWSHeroShow();
     
-    void HeroClick(CCObject* pSender);
+    void heroBackClick(CCObject* pSender);
+    void startPK(CCObject* pSender);
     
 };
 

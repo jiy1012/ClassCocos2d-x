@@ -9,11 +9,19 @@
 #include "DWSScence.h"
 #include "DatabaseDefault.h"
 #include "SimpleAudioEngine.h"
-#include "HeroTableLayer.h"
 
 using namespace cocos2d;
 using namespace CocosDenshion;
 
+//DWSScence::DWSScence()
+//{
+//    layer = HeroTableLayer::create();
+//}
+//
+//DWSScence::~DWSScence()
+//{
+//    CC_SAFE_DELETE(layer);
+//}
 
 CCSprite* DWSScence::DWSLogoDisplay(CCSize winSize)
 {
@@ -64,21 +72,22 @@ CCScene* DWSScence::DWSHeroShow()
     
     CCSize winSize = CCDirector::sharedDirector()->getVisibleSize();
     CCScene* heroAll = CCScene::create();
-    HeroTableLayer* layer = HeroTableLayer::create();
+    CCMenuItemImage* backButton = CCMenuItemImage::create("backButton.png", "backButtonSelected.png", heroAll, menu_selector(DWSScence::heroBackClick));
     
-    CCMenuItemImage* backButton = CCMenuItemImage::create("backButton.png", "backButtonSelected.png", heroAll, menu_selector(DWSScence::HeroClick));
-    CCMenuItemImage* stratPKButton = CCMenuItemImage::create("startPKButton.png", "startPKButtonSelected.png", layer, menu_selector(HeroTableLayer::startPK));
+    HeroTableLayer* layer = HeroTableLayer::create();
+    CCMenuItemImage* stratPKButton = CCMenuItemImage::create("startPKButton.png", "startPKButtonSelected.png", layer, menu_selector(DWSScence::startPK));
     
     backButton->setPosition(ccp(backButton->getContentSize().width, backButton->getContentSize().height/2));
     stratPKButton->setPosition(ccp(winSize.width/2, stratPKButton->getContentSize().height/2));
     
     CCMenu* bMenu = CCMenu::create(backButton,stratPKButton,NULL);
-    
     bMenu->setPosition( CCPointZero );
-    heroAll->addChild(bMenu);
+    
     CCLabelTTF* pk = CCLabelTTF::create("PK", "", 50);
     pk->setPosition(ccp(winSize.width/2, winSize.height/3*1));
+
     
+    heroAll->addChild(bMenu);
     heroAll->addChild(pk);
     heroAll->addChild(layer);
     
@@ -113,9 +122,24 @@ CCScene* DWSScence::DWSHeroShow()
     return heroAll;
 }
 
+void DWSScence::startPK(CCObject* pSender)
+{
+    HeroTableLayer* layer = (HeroTableLayer*) pSender;
+
+    CCLOG("start pk DWS %d ,%d" ,layer->hero1,layer->hero2);
+//    CCLOG("startPK hero1:%d hero2:%d" ,hero1,hero2);
+//    if (0 == hero1 || 0 == hero2) {
+//        return;
+//    }
+//    CCDictionary* groupHero = DatabaseDefault::shared()->getGroupItemByGroupID("Hero");
+//    heroStruct1->setData((CCDictionary*) groupHero->objectForKey(hero1));
+//    heroStruct2->setData((CCDictionary*) groupHero->objectForKey(hero2));
+//    
+//    CCLOG("%s   pk    %s",heroStruct1->name.c_str(),heroStruct2->name.c_str());
+}
 
 
-void DWSScence::HeroClick(CCObject* pSender)
+void DWSScence::heroBackClick(CCObject* pSender)
 {
     
     CCLog("click hero");

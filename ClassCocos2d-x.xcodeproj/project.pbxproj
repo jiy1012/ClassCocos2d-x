@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		D63A269F19224B0100FD252A /* startPKButton.png in Resources */ = {isa = PBXBuildFile; fileRef = D63A269D19224B0100FD252A /* startPKButton.png */; };
 		D63A26A019224B0100FD252A /* startPKButtonSelected.png in Resources */ = {isa = PBXBuildFile; fileRef = D63A269E19224B0100FD252A /* startPKButtonSelected.png */; };
+		D63A26A41925FF6C00FD252A /* HeroStruct.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D63A26A21925FF6C00FD252A /* HeroStruct.cpp */; };
 		D664A37218E8376B00D77821 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D664A37118E8376B00D77821 /* QuartzCore.framework */; };
 		D664A37418E8376B00D77821 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D664A37318E8376B00D77821 /* OpenGLES.framework */; };
 		D664A37618E8376B00D77821 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D664A37518E8376B00D77821 /* OpenAL.framework */; };
@@ -314,6 +315,9 @@
 /* Begin PBXFileReference section */
 		D63A269D19224B0100FD252A /* startPKButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = startPKButton.png; sourceTree = "<group>"; };
 		D63A269E19224B0100FD252A /* startPKButtonSelected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = startPKButtonSelected.png; sourceTree = "<group>"; };
+		D63A26A21925FF6C00FD252A /* HeroStruct.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HeroStruct.cpp; sourceTree = "<group>"; };
+		D63A26A31925FF6C00FD252A /* HeroStruct.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeroStruct.h; sourceTree = "<group>"; };
+		D63A26A5192611D800FD252A /* StructBase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StructBase.h; sourceTree = "<group>"; };
 		D664A36E18E8376B00D77821 /* ClassCocos2d-x.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ClassCocos2d-x.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D664A37118E8376B00D77821 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		D664A37318E8376B00D77821 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -958,6 +962,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D63A26A11925FF5100FD252A /* Struct */ = {
+			isa = PBXGroup;
+			children = (
+				D63A26A21925FF6C00FD252A /* HeroStruct.cpp */,
+				D63A26A31925FF6C00FD252A /* HeroStruct.h */,
+				D63A26A5192611D800FD252A /* StructBase.h */,
+			);
+			name = Struct;
+			path = Classes/Struct;
+			sourceTree = "<group>";
+		};
 		D664A36518E8376B00D77821 = {
 			isa = PBXGroup;
 			children = (
@@ -2153,6 +2168,7 @@
 		D664A71218E8377100D77821 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				D63A26A11925FF5100FD252A /* Struct */,
 				D664A71418E8377100D77821 /* AppDelegate.cpp */,
 				D664A71318E8377100D77821 /* AppDelegate.h */,
 				D6732F1119110877009A4411 /* DatabaseDefault.cpp */,
@@ -2554,6 +2570,7 @@
 				D664A52418E8376E00D77821 /* base64.cpp in Sources */,
 				D664A3DB18E8376C00D77821 /* CCDirector.cpp in Sources */,
 				D664A3AD18E8376B00D77821 /* CCActionCatmullRom.cpp in Sources */,
+				D63A26A41925FF6C00FD252A /* HeroStruct.cpp in Sources */,
 				D664A64918E8377000D77821 /* CCScrollView.cpp in Sources */,
 				D664A52A18E8376E00D77821 /* CCPointExtension.cpp in Sources */,
 				D664A5F618E8376F00D77821 /* CCScale9SpriteLoader.cpp in Sources */,
