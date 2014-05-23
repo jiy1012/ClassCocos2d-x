@@ -1,5 +1,6 @@
 #include "HelloWorldScene.h"
 #include "SimpleAudioEngine.h"
+#include "DatabaseDefault.h"
 
 using namespace cocos2d;
 using namespace CocosDenshion;
@@ -32,21 +33,19 @@ bool HelloWorld::init()
         return false;
     }
 
-    
-
     // ask director the window size
     winSize = CCDirector::sharedDirector()->getWinSize();
         
     // add "HelloWorld" splash screen"
-
-    CCSprite* DWSSprite = DWS->DWSLogoDisplay(winSize);
+    
+    CCSprite* DWSSprite = DWSScence::shared()->DWSLogoDisplay(winSize);
     
     CCFadeOut* pFadeout = CCFadeOut::create(3.0f);
     CCFiniteTimeAction* pSequence = CCSequence::create(pFadeout,
                                                        CCCallFuncN::create(this,callfuncN_selector(HelloWorld::logoDisplayCallback)),
                                                        NULL);
     DWSSprite->runAction(pSequence);
-//    loadConfig();
+    loadConfig();
     this->addChild(DWSSprite, 0);
     return true;
 }
@@ -160,7 +159,7 @@ void HelloWorld::titleDisplayCallback(CCNode* pNode)
 void HelloWorld::startGame(CCObject* pSender)
 {
     CCLog("start game");
-    CCScene* heroAll = DWS->DWSHeroShow();
+    CCScene* heroAll = DWSScence::shared()->DWSHeroShow();
     CCDirector::sharedDirector()->pushScene(heroAll);
 }
 
@@ -171,6 +170,7 @@ void HelloWorld::HeroClick(CCObject* pSender)
 void HelloWorld::loadConfig()
 {
     CCLog("load config xml");
+    DatabaseDefault::shared();
 }
 void HelloWorld::checkUpdate(CCObject* pSender)
 {

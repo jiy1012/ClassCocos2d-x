@@ -45,7 +45,6 @@ public:
     
     CCSize winSize;
     
-    DWSScence* DWS;
     
     // preprocessor macro for "static create()" constructor ( node() deprecated )
     CREATE_FUNC(HelloWorld);

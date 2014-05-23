@@ -25,7 +25,7 @@ HeroTableLayer::HeroTableLayer()
 
 HeroTableLayer::~HeroTableLayer()
 {
-
+    
 }
 
 // on "init" you need to initialize your instance
@@ -76,22 +76,10 @@ void HeroTableLayer::tableCellTouched(CCTableView* table, CCTableViewCell* cell)
         heroButton->setTag(2);
     }
     CCLOG("hero1:%d hero2:%d" ,hero1,hero2);
-//    if (0!=hero1 && 0 != hero2) {
-//        CCMenuItemImage* pStratButton = CCMenuItemImage::create("startPKButton.png", "startPKButtonSelected.png", this, menu_selector(HeroTableLayer::startPK));
-//
-//        pStratButton->setPosition(ccp(winSize.width/2, -winSize.height/4));
-//
-//        CCMenu* hMenu = CCMenu::create(heroButton,pStratButton,NULL);
-//        hMenu->setPosition( ccp(0, winSize.height/2-heroButton->getContentSize().height) );
-//        this->addChild(hMenu);
-//    }else{
-        CCMenu* hMenu = CCMenu::create(heroButton,NULL);
-        hMenu->setPosition( ccp(0, winSize.height/2-heroButton->getContentSize().height) );
-        this->addChild(hMenu);
-//    }
-    
 
-    
+    CCMenu* hMenu = CCMenu::create(heroButton,NULL);
+    hMenu->setPosition( ccp(0, winSize.height/2-heroButton->getContentSize().height) );
+    this->addChild(hMenu);
     
 }
 
@@ -100,19 +88,19 @@ void HeroTableLayer::tableCellTouched(CCTableView* table, CCTableViewCell* cell)
 //
 //
 //}
-//void HeroTableLayer::startPK(CCObject* pSender)
-//{
-//    CCLOG("startPK hero1:%d hero2:%d" ,hero1,hero2);
-//    if (0 == hero1 || 0 == hero2) {
-//        return;
-//    }
-//    CCDictionary* groupHero = DatabaseDefault::shared()->getGroupItemByGroupID("Hero");
-//    heroStruct1->setData((CCDictionary*) groupHero->objectForKey(hero1));
-//    heroStruct2->setData((CCDictionary*) groupHero->objectForKey(hero2));
-//    
-//    CCLOG("%s   pk    %s",heroStruct1->name.c_str(),heroStruct2->name.c_str());
-//    
-//}
+void HeroTableLayer::startPK(CCObject* pSender)
+{
+    CCLOG("startPK hero1:%d hero2:%d" ,hero1,hero2);
+    if (0 == hero1 || 0 == hero2) {
+        return;
+    }
+    CCDictionary* groupHero = DatabaseDefault::shared()->getGroupItemByGroupID("Hero");
+    heroStruct1->setData((CCDictionary*) groupHero->objectForKey(hero1));
+    heroStruct2->setData((CCDictionary*) groupHero->objectForKey(hero2));
+    
+    CCLOG("%s   pk    %s",heroStruct1->name.c_str(),heroStruct2->name.c_str());
+    
+}
 void HeroTableLayer::heroCancel(CCObject* pSender)
 {
     CCMenu* selected = (CCMenu*) pSender;

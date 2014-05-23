@@ -7,21 +7,20 @@
 //
 
 #include "DWSScence.h"
-#include "DatabaseDefault.h"
 #include "SimpleAudioEngine.h"
 
 using namespace cocos2d;
 using namespace CocosDenshion;
+DWSScence* DWSScence::s_DWSScence = NULL;
 
-//DWSScence::DWSScence()
-//{
-//    layer = HeroTableLayer::create();
-//}
-//
-//DWSScence::~DWSScence()
-//{
-//    CC_SAFE_DELETE(layer);
-//}
+DWSScence* DWSScence::shared()
+{
+    if (NULL == s_DWSScence) {
+        s_DWSScence = new DWSScence();
+    }
+    return s_DWSScence;
+}
+
 
 CCSprite* DWSScence::DWSLogoDisplay(CCSize winSize)
 {
@@ -34,8 +33,8 @@ CCSprite* DWSScence::DWSLogoDisplay(CCSize winSize)
     CCLabelTTF* pLabel = CCLabelTTF::create("DWS，为爱而生", "", 25);
     pLabel->cocos2d::CCNode::setPosition(ccp(DWSSprite->getContentSize().width/2, DWSSprite->getContentSize().height/2-pSprite->getContentSize().height));
     
-    CCFadeOut* pFadeOutS = CCFadeOut::create(3.0f);
-    CCFadeOut* pFadeOutL = CCFadeOut::create(3.0f);
+    CCFadeOut* pFadeOutS = CCFadeOut::create(1.0f);
+    CCFadeOut* pFadeOutL = CCFadeOut::create(1.0f);
     CCFiniteTimeAction* pSeqS = CCSequence::create(pFadeOutS,NULL);
     CCFiniteTimeAction* pSeqL = CCSequence::create(pFadeOutL,NULL);
     
@@ -69,15 +68,15 @@ CCSprite* DWSScence::DWSTitleHeroDisplay(CCSize winSize)
 
 CCScene* DWSScence::DWSHeroShow()
 {
-    
+
     CCSize winSize = CCDirector::sharedDirector()->getVisibleSize();
     CCScene* heroAll = CCScene::create();
+    
     CCMenuItemImage* backButton = CCMenuItemImage::create("backButton.png", "backButtonSelected.png", heroAll, menu_selector(DWSScence::heroBackClick));
+    backButton->setPosition(ccp(backButton->getContentSize().width, backButton->getContentSize().height/2));
     
     HeroTableLayer* layer = HeroTableLayer::create();
-    CCMenuItemImage* stratPKButton = CCMenuItemImage::create("startPKButton.png", "startPKButtonSelected.png", layer, menu_selector(DWSScence::startPK));
-    
-    backButton->setPosition(ccp(backButton->getContentSize().width, backButton->getContentSize().height/2));
+    CCMenuItemImage* stratPKButton = CCMenuItemImage::create("startPKButton.png", "startPKButtonSelected.png", layer, menu_selector(HeroTableLayer::startPK));
     stratPKButton->setPosition(ccp(winSize.width/2, stratPKButton->getContentSize().height/2));
     
     CCMenu* bMenu = CCMenu::create(backButton,stratPKButton,NULL);
@@ -85,64 +84,17 @@ CCScene* DWSScence::DWSHeroShow()
     
     CCLabelTTF* pk = CCLabelTTF::create("PK", "", 50);
     pk->setPosition(ccp(winSize.width/2, winSize.height/3*1));
-
     
     heroAll->addChild(bMenu);
     heroAll->addChild(pk);
     heroAll->addChild(layer);
-    
-    
-//    CCDictionary* groupHero = DatabaseDefault::shared()->getGroupItemByGroupID("Hero");
-//    
-//    CCLog("here %d",groupHero->count());
-//    
-//    CCDictElement* heroOne;
-//    CCArray* heroList = CCArray::create();
-// 
-//    CCDICT_FOREACH(groupHero, heroOne)
-//    {
-////        int heroId =heroOne->getIntKey();
-////        const char* name = ((CCString*)((CCDictionary*)(heroOne->getObject()))->objectForKey("name"))->getCString();
-////        const char* heroImage = CCString::createWithFormat("hero_%s.png",name)->getCString();
-////        CCMenuItemImage* heroMenu = CCMenuItemImage::create(heroImage, heroImage, this, menu_selector(DWSScence::HeroClick));
-////        
-////        heroMenu->setPosition(100, 100*i);
-////        heroList->addObject(heroMenu);
-//
-//        
-//    };
-//    CCMenu* pHeroMenu = CCMenu::createWithArray(heroList);
-//    heroAll->addChild(pHeroMenu);
-//    CCMenuItemImage* backButton = CCMenuItemImage::create("backButton.png", "backButtonSelected.png", this, menu_selector(DWSScence::HeroClick));
-//    backButton->setPosition(ccp(100, 200));
-//    CCMenu* bMenu = CCMenu::create(backButton,NULL);
-//    bMenu->setPosition( CCPointZero );
-//    heroAll->addChild(bMenu);
-
     return heroAll;
 }
-
-void DWSScence::startPK(CCObject* pSender)
-{
-    HeroTableLayer* layer = (HeroTableLayer*) pSender;
-
-    CCLOG("start pk DWS %d ,%d" ,layer->hero1,layer->hero2);
-//    CCLOG("startPK hero1:%d hero2:%d" ,hero1,hero2);
-//    if (0 == hero1 || 0 == hero2) {
-//        return;
-//    }
-//    CCDictionary* groupHero = DatabaseDefault::shared()->getGroupItemByGroupID("Hero");
-//    heroStruct1->setData((CCDictionary*) groupHero->objectForKey(hero1));
-//    heroStruct2->setData((CCDictionary*) groupHero->objectForKey(hero2));
-//    
-//    CCLOG("%s   pk    %s",heroStruct1->name.c_str(),heroStruct2->name.c_str());
-}
-
 
 void DWSScence::heroBackClick(CCObject* pSender)
 {
     
-    CCLog("click hero");
+    CCLog("click hero table back");
     CCDirector::sharedDirector()->popScene();
 
 }

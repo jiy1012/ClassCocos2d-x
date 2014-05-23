@@ -19,11 +19,8 @@ USING_NS_CC_EXT;
 class DWSScence : public CCLayer
 {
 public:
-    
-//    DWSScence();
-//    ~DWSScence();
-    
-    CREATE_FUNC(DWSScence);
+
+    static DWSScence* shared();
     
     CCSprite* DWSLogoDisplay(CCSize winSize);
     
@@ -33,7 +30,8 @@ public:
     
     void heroBackClick(CCObject* pSender);
     void startPK(CCObject* pSender);
-    
+private:
+    static DWSScence* s_DWSScence;
 };
 
 
