@@ -21,12 +21,13 @@ public:
 	void setData(CCDictionary* pDictData);
     
 public:
-    /*<Hero id="100" name="chan" q="10"  w="10"  e="10"  r="10"  attackQ="10"  attackW="10"  attackE="10"  attackR="10"  defense="10"/>*/
+    /*<Hero id="100" name="chan" HP＝"100" q="10"  w="10"  e="10"  r="10"  attackQ="10"  attackW="10"  attackE="10"  attackR="10"  defense="10"/>*/
     //
     int id;
     //
     string name;
     
+    int HP;
     //
     string q;
     //

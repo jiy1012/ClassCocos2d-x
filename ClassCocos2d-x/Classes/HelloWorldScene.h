@@ -5,7 +5,7 @@
 #include "cocos-ext.h"
 #include <spine/Json.h>
 
-#include "DWSScence.h"
+#include "DWSScene.h"
 #include "DatabaseDefault.h"
 
 USING_NS_CC;

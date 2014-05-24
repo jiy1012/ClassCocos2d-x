@@ -38,14 +38,13 @@ bool HelloWorld::init()
         
     // add "HelloWorld" splash screen"
     
-    CCSprite* DWSSprite = DWSScence::shared()->DWSLogoDisplay(winSize);
+    CCSprite* DWSSprite = DWSScene::shared()->DWSLogoDisplay(winSize);
     
     CCFadeOut* pFadeout = CCFadeOut::create(3.0f);
     CCFiniteTimeAction* pSequence = CCSequence::create(pFadeout,
                                                        CCCallFuncN::create(this,callfuncN_selector(HelloWorld::logoDisplayCallback)),
                                                        NULL);
     DWSSprite->runAction(pSequence);
-    loadConfig();
     this->addChild(DWSSprite, 0);
     return true;
 }
@@ -97,6 +96,7 @@ void HelloWorld::sloganDisplayCallback(CCNode* pNode)
                                                        NULL);
     pLabel->runAction(pSequence);
     this->addChild(pLabel);
+    loadConfig();
 }
 
 void HelloWorld::titleDisplayCallback(CCNode* pNode)
@@ -159,7 +159,7 @@ void HelloWorld::titleDisplayCallback(CCNode* pNode)
 void HelloWorld::startGame(CCObject* pSender)
 {
     CCLog("start game");
-    CCScene* heroAll = DWSScence::shared()->DWSHeroShow();
+    CCScene* heroAll = DWSScene::shared()->DWSHeroShow();
     CCDirector::sharedDirector()->pushScene(heroAll);
 }
 

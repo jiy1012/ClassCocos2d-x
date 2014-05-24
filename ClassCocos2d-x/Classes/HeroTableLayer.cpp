@@ -8,6 +8,7 @@
 
 #include "HeroTableLayer.h"
 #include "DatabaseDefault.h"
+#include "BattleScene.h"
 
 USING_NS_CC;
 USING_NS_CC_EXT;
@@ -20,7 +21,9 @@ HeroTableLayer::HeroTableLayer()
     hero2 = 0;
     heroCount = 0;
     heroStruct1 = HeroStruct::create() ;
+    heroStruct1->retain();
     heroStruct2 = HeroStruct::create() ;
+    heroStruct2->retain();
 }
 
 HeroTableLayer::~HeroTableLayer()
@@ -88,6 +91,14 @@ void HeroTableLayer::tableCellTouched(CCTableView* table, CCTableViewCell* cell)
 //
 //
 //}
+
+void HeroTableLayer::backClick(CCObject* pSender)
+{
+    CCLog("click backClick");
+    CCDirector::sharedDirector()->popScene();
+
+}
+
 void HeroTableLayer::startPK(CCObject* pSender)
 {
     CCLOG("startPK hero1:%d hero2:%d" ,hero1,hero2);
@@ -95,11 +106,32 @@ void HeroTableLayer::startPK(CCObject* pSender)
         return;
     }
     CCDictionary* groupHero = DatabaseDefault::shared()->getGroupItemByGroupID("Hero");
-    heroStruct1->setData((CCDictionary*) groupHero->objectForKey(hero1));
-    heroStruct2->setData((CCDictionary*) groupHero->objectForKey(hero2));
+    CCDictionary* h1 = (CCDictionary*) groupHero->objectForKey(hero1);
+    CCDictionary* h2 = (CCDictionary*) groupHero->objectForKey(hero2);
+    heroStruct1->setData(h1);
+    heroStruct2->setData(h2);
+    
+    CCSize winSize = CCDirector::sharedDirector()->getWinSize();
+    
+    CCScene* pkScene = CCScene::create();
+    pkScene->setContentSize(winSize);
+    
+    CCScene* hero1Scene = BattleScene::shared()->ShowHero(heroStruct1);
+    CCScene* hero2Scene = BattleScene::shared()->ShowHero(heroStruct2);
+    
+    
+    CCMenuItemImage* backButton = CCMenuItemImage::create("backButton.png", "backButtonSelected.png", pkScene, menu_selector(HeroTableLayer::backClick));
+    CCMenu* pMenu = CCMenu::create(backButton,NULL);
+    pMenu->setPosition(ccp(backButton->getContentSize().width, backButton->getContentSize().height/2));
+    
+    CCLOG("pkx:%f pky:%f h1x:%f h1y:%f h2x:%f h2y:%f",pkScene->getPositionX(),pkScene->getPositionY(),hero1Scene->getPositionX(),hero1Scene->getPositionY(),hero2Scene->getPositionX(),hero2Scene->getPositionY());
+    
+    pkScene->addChild(hero1Scene);
+    pkScene->addChild(hero2Scene);
+    pkScene->addChild(pMenu);
     
     CCLOG("%s   pk    %s",heroStruct1->name.c_str(),heroStruct2->name.c_str());
-    
+    CCDirector::sharedDirector()->pushScene(pkScene);
 }
 void HeroTableLayer::heroCancel(CCObject* pSender)
 {

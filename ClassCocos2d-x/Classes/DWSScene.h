@@ -1,13 +1,13 @@
 //
-//  DWSScence.h
+//  DWSScene.h
 //  ClassCocos2d-x
 //
 //  Created by liuyi on 14-4-28.
 //
 //
 
-#ifndef __ClassCocos2d_x__DWSScence__
-#define __ClassCocos2d_x__DWSScence__
+#ifndef __ClassCocos2d_x__DWSScene__
+#define __ClassCocos2d_x__DWSScene__
 
 #include "cocos2d.h"
 #include "cocos-ext.h"
@@ -16,11 +16,11 @@
 USING_NS_CC;
 USING_NS_CC_EXT;
 
-class DWSScence : public CCLayer
+class DWSScene : public CCLayer
 {
 public:
 
-    static DWSScence* shared();
+    static DWSScene* shared();
     
     CCSprite* DWSLogoDisplay(CCSize winSize);
     
@@ -31,8 +31,8 @@ public:
     void heroBackClick(CCObject* pSender);
     void startPK(CCObject* pSender);
 private:
-    static DWSScence* s_DWSScence;
+    static DWSScene* s_DWSScene;
 };
 
 
-#endif /* defined(__ClassCocos2d_x__DWSScence__) */
+#endif /* defined(__ClassCocos2d_x__DWSScene__) */

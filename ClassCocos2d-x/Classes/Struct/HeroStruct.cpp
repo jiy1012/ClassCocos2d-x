@@ -12,6 +12,7 @@ void HeroStruct::setData(CCDictionary* pDictData)
 {
     MODEL_SET_INTEGER(id, pDictData, this);
     MODEL_SET_STRING(name, pDictData, this);
+    MODEL_SET_INTEGER(HP, pDictData, this);
     MODEL_SET_STRING(q, pDictData, this);
     MODEL_SET_STRING(w, pDictData, this);
     MODEL_SET_STRING(e, pDictData, this);
@@ -30,7 +31,8 @@ bool HeroStruct::init()
         
         //
         name = "";
-        
+        //
+        HP = 0;
         //
         q = "";
         //

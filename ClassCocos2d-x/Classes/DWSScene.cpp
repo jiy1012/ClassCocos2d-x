@@ -1,28 +1,28 @@
 //
-//  DWSScence.cpp
+//  DWSScene.cpp
 //  ClassCocos2d-x
 //
 //  Created by liuyi on 14-4-28.
 //
 //
 
-#include "DWSScence.h"
+#include "DWSScene.h"
 #include "SimpleAudioEngine.h"
 
 using namespace cocos2d;
 using namespace CocosDenshion;
-DWSScence* DWSScence::s_DWSScence = NULL;
+DWSScene* DWSScene::s_DWSScene = NULL;
 
-DWSScence* DWSScence::shared()
+DWSScene* DWSScene::shared()
 {
-    if (NULL == s_DWSScence) {
-        s_DWSScence = new DWSScence();
+    if (NULL == s_DWSScene) {
+        s_DWSScene = new DWSScene();
     }
-    return s_DWSScence;
+    return s_DWSScene;
 }
 
 
-CCSprite* DWSScence::DWSLogoDisplay(CCSize winSize)
+CCSprite* DWSScene::DWSLogoDisplay(CCSize winSize)
 {
     CCSprite* DWSSprite = CCSprite::create();
     DWSSprite->setContentSize(CCSize(winSize.width/2,winSize.height/2));
@@ -47,7 +47,7 @@ CCSprite* DWSScence::DWSLogoDisplay(CCSize winSize)
     return DWSSprite;
 }
 
-CCSprite* DWSScence::DWSTitleHeroDisplay(CCSize winSize)
+CCSprite* DWSScene::DWSTitleHeroDisplay(CCSize winSize)
 {
     CCSprite* DWSHero = CCSprite::create();
     
@@ -66,13 +66,13 @@ CCSprite* DWSScence::DWSTitleHeroDisplay(CCSize winSize)
     return DWSHero;
 }
 
-CCScene* DWSScence::DWSHeroShow()
+CCScene* DWSScene::DWSHeroShow()
 {
 
     CCSize winSize = CCDirector::sharedDirector()->getVisibleSize();
     CCScene* heroAll = CCScene::create();
     
-    CCMenuItemImage* backButton = CCMenuItemImage::create("backButton.png", "backButtonSelected.png", heroAll, menu_selector(DWSScence::heroBackClick));
+    CCMenuItemImage* backButton = CCMenuItemImage::create("backButton.png", "backButtonSelected.png", heroAll, menu_selector(DWSScene::heroBackClick));
     backButton->setPosition(ccp(backButton->getContentSize().width, backButton->getContentSize().height/2));
     
     HeroTableLayer* layer = HeroTableLayer::create();
@@ -91,7 +91,7 @@ CCScene* DWSScence::DWSHeroShow()
     return heroAll;
 }
 
-void DWSScence::heroBackClick(CCObject* pSender)
+void DWSScene::heroBackClick(CCObject* pSender)
 {
     
     CCLog("click hero table back");

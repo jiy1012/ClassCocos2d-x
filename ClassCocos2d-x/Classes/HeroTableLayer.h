@@ -12,6 +12,8 @@
 #include "cocos2d.h"
 #include "cocos-ext.h"
 #include "HeroStruct.h"
+USING_NS_CC;
+USING_NS_CC_EXT;
 
 class HeroTableLayer : public cocos2d::CCLayer, public cocos2d::extension::CCTableViewDataSource, public cocos2d::extension::CCTableViewDelegate
 {
@@ -32,6 +34,7 @@ public:
     virtual unsigned int numberOfCellsInTableView(cocos2d::extension::CCTableView *table);
     
     void heroSelect(CCObject* pSender);
+    void backClick(CCObject* pSender);
     void heroCancel(CCObject* pSender);
     void startPK(CCObject* pSender);
     
@@ -44,5 +47,7 @@ public:
     
     HeroStruct* heroStruct1;
     HeroStruct* heroStruct2;
+    
 };
+
 #endif /* defined(__ClassCocos2d_x__HeroTableLayer__) */
