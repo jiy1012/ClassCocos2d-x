@@ -112,13 +112,20 @@ void HeroTableLayer::startPK(CCObject* pSender)
     heroStruct2->setData(h2);
     
     CCSize winSize = CCDirector::sharedDirector()->getWinSize();
+    CCSize heroSize;
+    heroSize.width = winSize.width/2;
+    heroSize.height = winSize.height/2;
     
     CCScene* pkScene = CCScene::create();
     pkScene->setContentSize(winSize);
     
     CCScene* hero1Scene = BattleScene::shared()->ShowHero(heroStruct1);
-    CCScene* hero2Scene = BattleScene::shared()->ShowHero(heroStruct2);
+    hero1Scene->setContentSize(heroSize);
+    hero1Scene->setPosition(ccp(winSize.width/4, winSize.height/2));
     
+    CCScene* hero2Scene = BattleScene::shared()->ShowHero(heroStruct2);
+    hero2Scene->setContentSize(heroSize);
+    hero2Scene->setPosition(ccp(winSize.width*3/4, winSize.height/2));
     
     CCMenuItemImage* backButton = CCMenuItemImage::create("backButton.png", "backButtonSelected.png", pkScene, menu_selector(HeroTableLayer::backClick));
     CCMenu* pMenu = CCMenu::create(backButton,NULL);

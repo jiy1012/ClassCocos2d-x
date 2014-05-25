@@ -22,23 +22,15 @@ BattleScene* BattleScene::shared()
 }
 
 
-CCScene* BattleScene::ShowHero(HeroStruct* hero , int idx)
+CCScene* BattleScene::ShowHero(HeroStruct* hero)
 {
     CCSize winSize = CCDirector::sharedDirector()->getWinSize();
     
     CCSize heroSize;
     heroSize.width = winSize.width/2;
     heroSize.height = winSize.height/2;
-    /*
-     idx=1 pointx=heroSize.width/2
-     idx=2 pointx=heroSize.width*3/2
-     */
-    
-    float pointx = heroSize.width;
     
     CCScene* heroScene = CCScene::create();
-    heroScene->setContentSize(heroSize);
-    heroScene->setPosition(ccp(heroSize.width/2, heroSize.height/2));
     
 //    CCLOG("ww:%f wh:%f hw:%f hh:%f",winSize.width,winSize.height,heroSize.width,heroSize.height);
     

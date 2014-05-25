@@ -23,7 +23,7 @@ class BattleScene : public CCLayer
 public:
     static BattleScene* shared();
     
-    CCScene* ShowHero(HeroStruct* hero, int idx);
+    CCScene* ShowHero(HeroStruct* hero);
     
 private:
     static BattleScene* s_BattleScene;
