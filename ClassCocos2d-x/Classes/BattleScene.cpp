@@ -34,26 +34,33 @@ CCScene* BattleScene::ShowHero(HeroStruct* hero)
     
 //    CCLOG("ww:%f wh:%f hw:%f hh:%f",winSize.width,winSize.height,heroSize.width,heroSize.height);
     
-    CCLabelTTF* name = CCLabelTTF::create(hero->name.c_str(), "", 20);
+    CCLabelTTF* name = CCLabelTTF::create(hero->name.c_str(), "", 40);
     CCLabelAtlas *hp = CCLabelAtlas::create(ITOA(hero->HP),"tuffy_bold_italic-charmap.plist");
+    CCLabelTTF* skillDetail = CCLabelTTF::create();
+    CCMenuItemImage* Qimg = CCMenuItemImage::create("Qimg.png", "Qimg.png", heroScene, menu_selector(BattleScene::clickSkill));
+    CCMenuItemImage* Wimg = CCMenuItemImage::create("Wimg.png", "Wimg.png", heroScene, menu_selector(BattleScene::clickSkill));
+    CCMenuItemImage* Eimg = CCMenuItemImage::create("Eimg.png", "Eimg.png", heroScene, menu_selector(BattleScene::clickSkill));
+    CCMenuItemImage* Rimg = CCMenuItemImage::create("Rimg.png", "Rimg.png", heroScene, menu_selector(BattleScene::clickSkill));
+    Qimg->setPosition(ccp(-heroSize.width/2+60, 0));
+    Wimg->setPosition(ccp(-heroSize.width/2+120, 0));
+    Eimg->setPosition(ccp(-heroSize.width/2+180, 0));
+    Rimg->setPosition(ccp(-heroSize.width/2+240, 0));
+    CCMenu* skillMenu = CCMenu::create(Qimg,Wimg,Eimg,Rimg,NULL);
+    skillMenu->setContentSize(CCSizeMake(heroSize.width, 60));
+    skillMenu->setPosition(ccp(-heroSize.width/2+skillMenu->getContentSize().width/2,0));
 
-    CCSprite* Qimg = SET_SKILL_IMG("Qimg.png");
-    CCSprite* Wimg = SET_SKILL_IMG("Wimg.png");
-    CCSprite* Eimg = SET_SKILL_IMG("Eimg.png");
-    CCSprite* Rimg = SET_SKILL_IMG("Rimg.png");
-
-    name->setPosition(ccp(-heroSize.width/2+Qimg->getContentSize().width, heroSize.height));
-    hp->setPosition(ccp(-heroSize.width/2+Qimg->getContentSize().width, heroSize.height*9/10));
-    Qimg->setPosition(ccp(-heroSize.width/2+Qimg->getContentSize().width, heroSize.height*8/10));
-    Wimg->setPosition(ccp(-heroSize.width/2+Wimg->getContentSize().width, heroSize.height*5/10));
-    Eimg->setPosition(ccp(-heroSize.width/2+Eimg->getContentSize().width, heroSize.height*3/10));
-    Rimg->setPosition(ccp(-heroSize.width/2+Rimg->getContentSize().width, heroSize.height*1/10));
+    name->setPosition(ccp(-heroSize.width/2+100, heroSize.height-name->getContentSize().height));
+    hp->setPosition(ccp(-heroSize.width/2+100, heroSize.height*8/10));
     
     heroScene->addChild(name);
     heroScene->addChild(hp);
-    heroScene->addChild(Qimg);
-    heroScene->addChild(Wimg);
-    heroScene->addChild(Eimg);
-    heroScene->addChild(Rimg);
+    heroScene->addChild(skillMenu,hero->id);
+    heroScene->addChild(skillDetail);
     return heroScene;
+}
+
+void BattleScene::clickSkill(CCObject* pSender)
+{
+    CCScene* heroScene = (CCScene*) pSender;
+    CCLOG("click skill %d",heroScene->getTag());
 }

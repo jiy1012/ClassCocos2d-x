@@ -25,6 +25,8 @@ public:
     
     CCScene* ShowHero(HeroStruct* hero);
     
+    void clickSkill(CCObject* pSender);
+    
 private:
     static BattleScene* s_BattleScene;
 };

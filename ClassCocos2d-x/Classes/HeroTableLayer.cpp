@@ -133,8 +133,8 @@ void HeroTableLayer::startPK(CCObject* pSender)
     
     CCLOG("pkx:%f pky:%f h1x:%f h1y:%f h2x:%f h2y:%f",pkScene->getPositionX(),pkScene->getPositionY(),hero1Scene->getPositionX(),hero1Scene->getPositionY(),hero2Scene->getPositionX(),hero2Scene->getPositionY());
     
-    pkScene->addChild(hero1Scene);
-    pkScene->addChild(hero2Scene);
+    pkScene->addChild(hero1Scene,hero1);
+    pkScene->addChild(hero2Scene,hero2);
     pkScene->addChild(pMenu);
     
     CCLOG("%s   pk    %s",heroStruct1->name.c_str(),heroStruct2->name.c_str());
