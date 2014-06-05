@@ -127,15 +127,21 @@ void HeroTableLayer::startPK(CCObject* pSender)
     hero2Scene->setContentSize(heroSize);
     hero2Scene->setPosition(ccp(winSize.width*3/4, winSize.height/2));
     
+    CCLabelTTF* skill1 = BattleScene::shared()->setSkillDetail1("22");
+    skill1->setTag(hero1);
+    CCLabelTTF* skill2 = BattleScene::shared()->setSkillDetail2("33");
+    skill2->setTag(hero2);
     CCMenuItemImage* backButton = CCMenuItemImage::create("backButton.png", "backButtonSelected.png", pkScene, menu_selector(HeroTableLayer::backClick));
     CCMenu* pMenu = CCMenu::create(backButton,NULL);
     pMenu->setPosition(ccp(backButton->getContentSize().width, backButton->getContentSize().height/2));
     
     CCLOG("pkx:%f pky:%f h1x:%f h1y:%f h2x:%f h2y:%f",pkScene->getPositionX(),pkScene->getPositionY(),hero1Scene->getPositionX(),hero1Scene->getPositionY(),hero2Scene->getPositionX(),hero2Scene->getPositionY());
     
-    pkScene->addChild(hero1Scene,hero1);
-    pkScene->addChild(hero2Scene,hero2);
+    pkScene->addChild(hero1Scene);
+    pkScene->addChild(hero2Scene);
     pkScene->addChild(pMenu);
+    pkScene->addChild(skill1);
+    pkScene->addChild(skill2);
     
     CCLOG("%s   pk    %s",heroStruct1->name.c_str(),heroStruct2->name.c_str());
     CCDirector::sharedDirector()->pushScene(pkScene);

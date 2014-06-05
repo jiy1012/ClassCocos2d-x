@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <DWS:database xmlns:DWS="http://5461.sinapp.com/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<Group id="Hero" type="conf">
-		<Hero id="100" name="chan" HP="100" q="10" w="10" e="10" r="10" attackQ="10" attackW="10" attackE="10" attackR="10" defense="10"/>
-		<Hero id="101" name="jian" HP="100" q="10" w="10" e="10" r="10" attackQ="10" attackW="10" attackE="10" attackR="10" defense="10"/>
-		<Hero id="102" name="ss" HP="100" q="10" w="10" e="10" r="10" attackQ="10" attackW="10" attackE="10" attackR="10" defense="10"/>
-		<Hero id="103" name="xiaoshuang" HP="100" q="10" w="10" e="10" r="10" attackQ="10" attackW="10" attackE="10" attackR="10" defense="10"/>
-		<Hero id="104" name="hezimei" HP="100" q="10" w="10" e="10" r="10" attackQ="10" attackW="10" attackE="10" attackR="10" defense="10"/>
-		<Hero id="105" name="tuiqun" HP="100" q="10" w="10" e="10" r="10" attackQ="10" attackW="10" attackE="10" attackR="10" defense="10"/>
-		<Hero id="106" name="jiangnima" HP="100" q="10" w="10" e="10" r="10" attackQ="10" attackW="10" attackE="10" attackR="10" defense="10"/>
-		<Hero id="107" name="sbcaicai" HP="100" q="10" w="10" e="10" r="10" attackQ="10" attackW="10" attackE="10" attackR="10" defense="10"/>
-		<Hero id="108" name="xiaoyi" HP="100" q="10" w="10" e="10" r="10" attackQ="10" attackW="10" attackE="10" attackR="10" defense="10"/>
-		<Hero id="109" name="jblong" HP="100" q="10" w="10" e="10" r="10" attackQ="10" attackW="10" attackE="10" attackR="10" defense="10"/>
-		<Hero id="110" name="Yi"  HP="100" q="10" w="10" e="10" r="10" attackQ="10" attackW="10" attackE="10" attackR="10" defense="10"/>
+		<Hero id="100" name="chan" HP="100" q="攻击Q1" w="攻击W1" e="攻击E1" r="攻击R1" attackQ="10" attackW="10" attackE="10" attackR="10" defense="10"/>
+		<Hero id="101" name="jian" HP="100" q="攻击Q2" w="攻击W2" e="攻击E2" r="攻击R2" attackQ="10" attackW="10" attackE="10" attackR="10" defense="10"/>
+		<Hero id="102" name="ss" HP="100" q="攻击Q3" w="攻击W1" e="10" r="10" attackQ="10" attackW="10" attackE="10" attackR="10" defense="10"/>
+		<Hero id="103" name="xiaoshuang" HP="100" q="攻击Q4" w="攻击W1" e="10" r="10" attackQ="10" attackW="10" attackE="10" attackR="10" defense="10"/>
+		<Hero id="104" name="hezimei" HP="100" q="攻击Q5" w="10" e="10" r="10" attackQ="10" attackW="10" attackE="10" attackR="10" defense="10"/>
+		<Hero id="105" name="tuiqun" HP="100" q="攻击Q6" w="10" e="10" r="10" attackQ="10" attackW="10" attackE="10" attackR="10" defense="10"/>
+		<Hero id="106" name="jiangnima" HP="100" q="攻击Q7" w="10" e="10" r="10" attackQ="10" attackW="10" attackE="10" attackR="10" defense="10"/>
+		<Hero id="107" name="sbcaicai" HP="100" q="攻击Q8" w="10" e="10" r="10" attackQ="10" attackW="10" attackE="10" attackR="10" defense="10"/>
+		<Hero id="108" name="xiaoyi" HP="100" q="攻击Q9" w="10" e="10" r="10" attackQ="10" attackW="10" attackE="10" attackR="10" defense="10"/>
+		<Hero id="109" name="jblong" HP="100" q="攻击Q10" w="10" e="10" r="10" attackQ="10" attackW="10" attackE="10" attackR="10" defense="10"/>
+		<Hero id="110" name="Yi"  HP="100" q="攻击Q11" w="10" e="10" r="10" attackQ="10" attackW="10" attackE="10" attackR="10" defense="10"/>
 	</Group>
 
 	<!-- 物品 可以放在背包里的物品  -->
