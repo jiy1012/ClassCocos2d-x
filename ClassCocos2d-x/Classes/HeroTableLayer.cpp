@@ -95,6 +95,7 @@ void HeroTableLayer::tableCellTouched(CCTableView* table, CCTableViewCell* cell)
 void HeroTableLayer::backClick(CCObject* pSender)
 {
     CCLog("click backClick");
+    BattleScene::shared()->releaseSelf();
     CCDirector::sharedDirector()->popScene();
 
 }
@@ -127,10 +128,15 @@ void HeroTableLayer::startPK(CCObject* pSender)
     hero2Scene->setContentSize(heroSize);
     hero2Scene->setPosition(ccp(winSize.width*3/4, winSize.height/2));
     
-    CCLabelTTF* skill1 = BattleScene::shared()->setSkillDetail1("22");
+    CCLabelTTF* skill1 = BattleScene::shared()->setSkillDetail1("");
     skill1->setTag(hero1);
-    CCLabelTTF* skill2 = BattleScene::shared()->setSkillDetail2("33");
+    CCLabelTTF* skill2 = BattleScene::shared()->setSkillDetail2("");
     skill2->setTag(hero2);
+    CCLabelTTF* hp1 = BattleScene::shared()->setHP1(ITOA(heroStruct1->HP));
+    hp1->setTag(hero1*10);
+    CCLabelTTF* hp2 = BattleScene::shared()->setHP2(ITOA(heroStruct2->HP));
+    hp2->setTag(hero2*10);
+    
     CCMenuItemImage* backButton = CCMenuItemImage::create("backButton.png", "backButtonSelected.png", pkScene, menu_selector(HeroTableLayer::backClick));
     CCMenu* pMenu = CCMenu::create(backButton,NULL);
     pMenu->setPosition(ccp(backButton->getContentSize().width, backButton->getContentSize().height/2));
@@ -142,7 +148,8 @@ void HeroTableLayer::startPK(CCObject* pSender)
     pkScene->addChild(pMenu);
     pkScene->addChild(skill1);
     pkScene->addChild(skill2);
-    
+    pkScene->addChild(hp1);
+    pkScene->addChild(hp2);
     CCLOG("%s   pk    %s",heroStruct1->name.c_str(),heroStruct2->name.c_str());
     CCDirector::sharedDirector()->pushScene(pkScene);
 }

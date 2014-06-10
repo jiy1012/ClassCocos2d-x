@@ -9,6 +9,11 @@
 #ifndef ClassCocos2d_x_DefinedBase_h
 #define ClassCocos2d_x_DefinedBase_h
 
+//获取屏幕长宽
+#define WIN_WIDTH CCDirector::sharedDirector()->getWinSize().width
+#define WIN_HEIGHT CCDirector::sharedDirector()->getWinSize().height
+
+
 //类型转换
 #define ITOA(i) CCString::createWithFormat("%d",i)->getCString()
 #define ATOI(a) CCString::createWithFormat("%s",a)->intValue()

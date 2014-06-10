@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ClassCocos2d-x/Classes/BattleScene.cpp"
-            timestampString = "423666600.53347"
+            timestampString = "424097072.749512"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "133"
-            endingLineNumber = "133">
+            startingLineNumber = "167"
+            endingLineNumber = "167">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -24,11 +24,27 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ClassCocos2d-x/Classes/BattleScene.cpp"
-            timestampString = "423666600.53347"
+            timestampString = "424097072.749512"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "128"
-            endingLineNumber = "128"
+            startingLineNumber = "162"
+            endingLineNumber = "162"
+            landmarkName = "BattleScene::clickSkill(CCObject* pSender)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ClassCocos2d-x/Classes/BattleScene.cpp"
+            timestampString = "424097072.749512"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "145"
+            endingLineNumber = "145"
             landmarkName = "BattleScene::clickSkill(CCObject* pSender)"
             landmarkType = "5">
          </BreakpointContent>

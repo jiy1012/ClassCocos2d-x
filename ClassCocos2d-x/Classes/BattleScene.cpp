@@ -21,20 +21,37 @@ BattleScene* BattleScene::shared()
     return s_BattleScene;
 }
 
+void BattleScene::releaseSelf()
+{
+    s_BattleScene = NULL;
+}
+
+BattleScene::BattleScene()
+{
+    skillDetail1 = NULL;
+    skillDetail2 = NULL;
+    HP1 = NULL;
+    HP2 = NULL;
+
+}
+
+BattleScene::~BattleScene()
+{
+//    CC_SAFE_RELEASE_NULL(skillDetail1);
+//    CC_SAFE_RELEASE_NULL(skillDetail2);
+//    CC_SAFE_RELEASE_NULL(HP1);
+//    CC_SAFE_RELEASE_NULL(HP2);
+}
 
 CCScene* BattleScene::ShowHero(HeroStruct* hero)
 {
-    CCSize winSize = CCDirector::sharedDirector()->getWinSize();
     
     CCSize heroSize;
-    heroSize.width = winSize.width/2;
-    heroSize.height = winSize.height/2;
+    heroSize.width = WIN_WIDTH/2;
+    heroSize.height = WIN_HEIGHT/2;
     
     CCScene* heroScene = CCScene::create();
-//    CCLOG("ww:%f wh:%f hw:%f hh:%f",winSize.width,winSize.height,heroSize.width,heroSize.height);
-    
     CCLabelTTF* name = CCLabelTTF::create(hero->name.c_str(), "", 40);
-    CCLabelAtlas *hp = CCLabelAtlas::create(ITOA(hero->HP),"tuffy_bold_italic-charmap.plist");
 
     CCMenuItemImage* Qimg = CCMenuItemImage::create("Qimg.png", "Qimg.png", this, menu_selector(BattleScene::clickSkill));
     CCMenuItemImage* Wimg = CCMenuItemImage::create("Wimg.png", "Wimg.png", this, menu_selector(BattleScene::clickSkill));
@@ -56,27 +73,18 @@ CCScene* BattleScene::ShowHero(HeroStruct* hero)
     skillMenu->setPosition(ccp(-heroSize.width/2+skillMenu->getContentSize().width/2,0));
 
     name->setPosition(ccp(-heroSize.width/2+100, heroSize.height-name->getContentSize().height));
-    hp->setPosition(ccp(-heroSize.width/2+100, heroSize.height*6/10));
 
-    heroScene->addChild(name,10,20);
-    heroScene->addChild(hp,10,10);
-    heroScene->addChild(skillMenu,10,15);
+    heroScene->addChild(name);
+    heroScene->addChild(skillMenu);
 
     return heroScene;
 }
 
 CCLabelTTF* BattleScene::setSkillDetail1(const char* detail)
 {
-    CCSize winSize = CCDirector::sharedDirector()->getWinSize();
-    
-    CCSize heroSize;
-    heroSize.width = winSize.width/2;
-    heroSize.height = winSize.height/2;
-    
     if (skillDetail1 == NULL) {
         skillDetail1 = CCLabelTTF::create(detail, "", 30);
-        skillDetail1->setContentSize(heroSize);
-        skillDetail1->setPosition(ccp(100, heroSize.height/2));
+        skillDetail1->setPosition(ccp(100, WIN_HEIGHT/4));
     }else{
         skillDetail1->setString(detail);
     }
@@ -85,20 +93,35 @@ CCLabelTTF* BattleScene::setSkillDetail1(const char* detail)
 
 CCLabelTTF* BattleScene::setSkillDetail2(const char* detail)
 {
-    CCSize winSize = CCDirector::sharedDirector()->getWinSize();
-    
-    CCSize heroSize;
-    heroSize.width = winSize.width/2;
-    heroSize.height = winSize.height/2;
-    
     if (skillDetail2 == NULL) {
         skillDetail2 = CCLabelTTF::create(detail, "", 30);
-        skillDetail2->setContentSize(heroSize);
-        skillDetail2->setPosition(ccp(heroSize.width+100, heroSize.height/2));
+        skillDetail2->setPosition(ccp(WIN_WIDTH/2+100, WIN_HEIGHT/4));
     }else{
         skillDetail2->setString(detail);
     }
     return skillDetail2;
+}
+
+CCLabelTTF* BattleScene::setHP1(const char* detail)
+{
+    if (HP1 == NULL) {
+        HP1 = CCLabelTTF::create(detail, "", 50);
+        HP1->setPosition(ccp(WIN_WIDTH/2/2+100, WIN_HEIGHT*8/10));
+    }else{
+        HP1->setString(detail);
+    }
+    return HP1;
+}
+
+CCLabelTTF* BattleScene::setHP2(const char* detail)
+{
+    if (HP2 == NULL) {
+        HP2 = CCLabelTTF::create(detail, "", 50);
+        HP2->setPosition(ccp(WIN_WIDTH/2*3/2+100, WIN_HEIGHT*8/10));
+    }else{
+        HP2->setString(detail);
+    }
+    return HP2;
 }
 
 void BattleScene::clickSkill(CCObject* pSender)
@@ -119,10 +142,23 @@ void BattleScene::clickSkill(CCObject* pSender)
     CCDictionary* groupHero = DatabaseDefault::shared()->getGroupItemByGroupID("Hero");
     CCDictionary* h1 = (CCDictionary*) groupHero->objectForKey(heroId);
     const char* Detail = h1->valueForKey(skill)->getCString();
+    int act = h1->valueForKey(CCString::createWithFormat("attack%s",skill)->getCString())->intValue();
     if (skillDetail1->getTag() == heroId) {
+        int hero2 = skillDetail2->getTag();
+        CCDictionary* h2 = (CCDictionary*) groupHero->objectForKey(hero2);
+        int defense = h2->valueForKey("defense")->intValue();
+        int minus = act>defense?act-defense:0;
         setSkillDetail1(Detail);
+        int nowHp2 = ATOI(HP2->getString()) - minus>0?ATOI(HP2->getString()) - minus:0;
+        setHP2(ITOA(nowHp2));
     }else if(skillDetail2->getTag() == heroId){
+        int hero1 = skillDetail1->getTag();
+        CCDictionary* h2 = (CCDictionary*) groupHero->objectForKey(hero1);
+        int defense = h2->valueForKey("defense")->intValue();
+        int minus = act>defense?act-defense:0;
         setSkillDetail2(Detail);
+        int nowHp1 = ATOI(HP1->getString()) - minus>0?ATOI(HP1->getString()) - minus:0;
+        setHP1(ITOA(nowHp1));
     }
     
     CCLOG("click skill ok %d %s %s %d %d",heroId,skill,Detail,skillDetail1->getTag(),skillDetail2->getTag());

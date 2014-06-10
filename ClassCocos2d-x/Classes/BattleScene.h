@@ -22,15 +22,27 @@ USING_NS_CC_EXT;
 class BattleScene : public CCLayer
 {
 public:
+    BattleScene();
+    ~BattleScene();
+    
     static BattleScene* shared();
     
     CCScene* ShowHero(HeroStruct* hero);
     
     void clickSkill(CCObject* pSender);
-    CCLabelTTF* setSkillDetail1(const char* detail);
-    CCLabelTTF* setSkillDetail2(const char* detail);
+    
+    void releaseSelf();
+    
     CCLabelTTF* skillDetail1;
     CCLabelTTF* skillDetail2;
+    CCLabelTTF* setSkillDetail1(const char* detail);
+    CCLabelTTF* setSkillDetail2(const char* detail);
+
+    
+    CCLabelTTF* HP1;
+    CCLabelTTF* HP2;
+    CCLabelTTF* setHP1(const char* detail);
+    CCLabelTTF* setHP2(const char* detail);
 private:
     static BattleScene* s_BattleScene;
 };
