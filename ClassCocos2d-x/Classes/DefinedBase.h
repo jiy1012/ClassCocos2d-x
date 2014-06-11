@@ -21,6 +21,9 @@
 //设置技能图片
 #define SET_SKILL_IMG(name) CCSprite::create(name);
 
-
+//返回最大值
+#define GET_MAX(a,b) ((a)>(b)?(a):(b))
+//返回最小值
+#define GET_MIN(a,b) ((a)<(b)?(a):(b))
 
 #endif

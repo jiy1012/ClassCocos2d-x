@@ -9,12 +9,10 @@
 #ifndef __ClassCocos2d_x__DWSScene__
 #define __ClassCocos2d_x__DWSScene__
 
-#include "cocos2d.h"
-#include "cocos-ext.h"
+#include "CommonConfig.h"
 #include "HeroTableLayer.h"
 
-USING_NS_CC;
-USING_NS_CC_EXT;
+
 
 class DWSScene : public CCLayer
 {

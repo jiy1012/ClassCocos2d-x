@@ -38,11 +38,10 @@ bool HeroTableLayer::init()
     {
         return false;
     }
-	CCSize winSize = CCDirector::sharedDirector()->getWinSize();
     
-    CCTableView* tableView = CCTableView::create(this, CCSizeMake(winSize.width/5*4, winSize.height/2));
+    CCTableView* tableView = CCTableView::create(this, CCSizeMake(WIN_WIDTH, WIN_HEIGHT/2));
     tableView->setDirection(kCCScrollViewDirectionHorizontal);
-    tableView->setPosition(ccp(0 , winSize.height/2));
+    tableView->setPosition(ccp(0 , WIN_HEIGHT/2));
     tableView->setDelegate(this);
     this->addChild(tableView);
     tableView->reloadData();
@@ -78,6 +77,7 @@ void HeroTableLayer::tableCellTouched(CCTableView* table, CCTableViewCell* cell)
         heroButton->setPosition(ccp(winSize.width/2+heroButton->getContentSize().width, 0));
         heroButton->setTag(2);
     }
+
     CCLOG("hero1:%d hero2:%d" ,hero1,hero2);
 
     CCMenu* hMenu = CCMenu::create(heroButton,NULL);
@@ -169,7 +169,8 @@ void HeroTableLayer::heroCancel(CCObject* pSender)
 
 CCSize HeroTableLayer::tableCellSizeForIndex(CCTableView *table, unsigned int idx)
 {
-    return CCSizeMake(200, 200);
+//    CCLOG("cell :%f %f",WIN_WIDTH/4,WIN_HEIGHT/2);
+    return CCSizeMake(WIN_WIDTH/4, WIN_HEIGHT/2);
 }
 
 CCTableViewCell* HeroTableLayer::tableCellAtIndex(CCTableView *table, unsigned int idx)
@@ -185,18 +186,24 @@ CCTableViewCell* HeroTableLayer::tableCellAtIndex(CCTableView *table, unsigned i
 
     cell = new CCTableViewCell();
     cell->autorelease();
-//    CCLOG("sprite:%s",heroImage);
+
     CCSprite* sprite = CCSprite::create(heroImage);
-//    CCLOG("img : %s",heroImage);
-//    CCLOG("sprite:%f %f",sprite->getContentSize().width,sprite->getContentSize().height);
+    CCLabelTTF* label = CCLabelTTF::create(name, "Helvetica", 20.0);
     
     sprite->setAnchorPoint(CCPointZero);
     sprite->setPosition(ccp(0, 0));
+    
+    float scalex = WIN_WIDTH/4/sprite->getContentSize().width;
+    float scaley = WIN_HEIGHT/2/(sprite->getContentSize().height+label->getContentSize().height);
+    int scale = GET_MIN(scalex, scaley);
+    
+    sprite->setScale(scale);
+    
     cell->addChild(sprite);
         
-    CCLabelTTF *label = CCLabelTTF::create(name, "Helvetica", 20.0);
-    label->setPosition(ccp(0,sprite->getContentSize().height));
     label->setAnchorPoint(CCPointZero);
+    label->setPosition(ccp(0,sprite->getContentSize().height*scale));
+
     cell->addChild(label);
     
     return cell;

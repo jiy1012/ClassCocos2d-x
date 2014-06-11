@@ -10,9 +10,7 @@
 #define __ClassCocos2d_x__BattleScene__
 
 
-#include "cocos2d.h"
-#include "cocos-ext.h"
-#include "DefinedBase.h"
+#include "CommonConfig.h"
 #include "DatabaseDefault.h"
 #include "HeroStruct.h"
 

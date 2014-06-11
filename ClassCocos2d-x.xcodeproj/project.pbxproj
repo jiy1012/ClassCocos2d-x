@@ -917,6 +917,7 @@
 		D666CE2F1903D2D700273914 /* backButtonSelected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backButtonSelected.png; sourceTree = "<group>"; };
 		D6732F1119110877009A4411 /* DatabaseDefault.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = DatabaseDefault.cpp; path = Classes/DatabaseDefault.cpp; sourceTree = "<group>"; };
 		D6732F1219110877009A4411 /* DatabaseDefault.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DatabaseDefault.h; path = Classes/DatabaseDefault.h; sourceTree = "<group>"; };
+		D69BE6C41948844F001E345F /* CommonConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CommonConfig.h; path = Classes/CommonConfig.h; sourceTree = "<group>"; };
 		D69CCE15191A04A400FE1F00 /* hero_chan.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hero_chan.png; sourceTree = "<group>"; };
 		D69CCE16191A04A400FE1F00 /* hero_jian.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hero_jian.png; sourceTree = "<group>"; };
 		D69CCE1C191CE4EA00FE1F00 /* HeroTableLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = HeroTableLayer.cpp; path = Classes/HeroTableLayer.cpp; sourceTree = "<group>"; };
@@ -2199,6 +2200,7 @@
 				D69CCE1C191CE4EA00FE1F00 /* HeroTableLayer.cpp */,
 				D69CCE1D191CE4EA00FE1F00 /* HeroTableLayer.h */,
 				D63A26A11925FF5100FD252A /* Struct */,
+				D69BE6C41948844F001E345F /* CommonConfig.h */,
 			);
 			name = Classes;
 			sourceTree = "<group>";

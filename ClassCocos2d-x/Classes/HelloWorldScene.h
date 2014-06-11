@@ -1,15 +1,11 @@
 #ifndef __HELLOWORLD_SCENE_H__
 #define __HELLOWORLD_SCENE_H__
 
-#include "cocos2d.h"
-#include "cocos-ext.h"
-#include <spine/Json.h>
 
+#include "CommonConfig.h"
+#include <spine/Json.h>
 #include "DWSScene.h"
 #include "DatabaseDefault.h"
-
-USING_NS_CC;
-USING_NS_CC_EXT;
 
 class HelloWorld : public cocos2d::CCLayer
 {

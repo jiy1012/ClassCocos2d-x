@@ -9,12 +9,9 @@
 #ifndef __ClassCocos2d_x__DatabaseDefault__
 #define __ClassCocos2d_x__DatabaseDefault__
 
-#include "cocos2d.h"
-#include "cocos-ext.h"
-#include "support/tinyxml2/tinyxml2.h"
+#include "CommonConfig.h"
 
-USING_NS_CC;
-USING_NS_CC_EXT;
+#include "support/tinyxml2/tinyxml2.h"
 using namespace tinyxml2;
 
 
