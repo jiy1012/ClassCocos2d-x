@@ -33,6 +33,7 @@ BattleScene::BattleScene()
     battleResult = NULL;
     HP1 = NULL;
     HP2 = NULL;
+    battleEnd = 0;
 
 }
 
@@ -94,7 +95,7 @@ CCLabelTTF* BattleScene::setSkillDetail1(const char* detail)
     if (skillDetail1 == NULL) {
         skillDetail1 = CCLabelTTF::create(detail, "", 30);
         skillDetail1->setPosition(ccp(100, WIN_HEIGHT/4));
-    }else{
+    }else if(battleEnd != 1){
         skillDetail1->setString(detail);
     }
     return skillDetail1;
@@ -102,10 +103,9 @@ CCLabelTTF* BattleScene::setSkillDetail1(const char* detail)
 
 CCLabelTTF* BattleScene::setSkillDetail2(const char* detail)
 {
-    if (skillDetail2 == NULL) {
+    if (skillDetail2 == NULL && battleEnd != 1) {
         skillDetail2 = CCLabelTTF::create(detail, "", 30);
-        skillDetail2->setPosition(ccp(WIN_WIDTH/2+100, WIN_HEIGHT/4));
-    }else{
+    }else if(battleEnd != 1){
         skillDetail2->setString(detail);
     }
     return skillDetail2;
@@ -122,10 +122,11 @@ CCLabelTTF* BattleScene::setBattleResult()
 
 CCLabelTTF* BattleScene::setBattleResult(const char* winner ,const char* loser)
 {
-    if (battleResult != NULL) {
+    if (battleResult != NULL && battleEnd != 1) {
         CCString* result = CCString::createWithFormat("恭喜 %s 战胜了 %s，获得了战斗的胜利！",winner,loser);
         CCLOG("%s",result->getCString());
         battleResult->setString(result->getCString());
+        battleEnd = 1;
     }
     return battleResult;
 }
@@ -135,7 +136,7 @@ CCLabelTTF* BattleScene::setHP1(const char* detail)
     if (HP1 == NULL) {
         HP1 = CCLabelTTF::create(detail, "", 50);
         HP1->setPosition(ccp(WIN_WIDTH/2/2+100, WIN_HEIGHT*8/10));
-    }else{
+    }else if(battleEnd != 1){
         HP1->setString(detail);
     }
     return HP1;
@@ -146,7 +147,7 @@ CCLabelTTF* BattleScene::setHP2(const char* detail)
     if (HP2 == NULL) {
         HP2 = CCLabelTTF::create(detail, "", 50);
         HP2->setPosition(ccp(WIN_WIDTH/2*3/2+100, WIN_HEIGHT*8/10));
-    }else{
+    }else if(battleEnd != 1){
         HP2->setString(detail);
     }
     return HP2;
@@ -191,7 +192,7 @@ void BattleScene::clickSkill(CCObject* pSender)
         int nowHp1 = ATOI(HP1->getString()) - minus>0?ATOI(HP1->getString()) - minus:0;
         setHP1(ITOA(nowHp1));
         if (nowHp1 <= 0) {
-            setBattleResult(h2->valueForKey("name")->getCString(), h1->valueForKey("name")->getCString());
+            setBattleResult(h1->valueForKey("name")->getCString(), h2->valueForKey("name")->getCString());
         }
     }
 

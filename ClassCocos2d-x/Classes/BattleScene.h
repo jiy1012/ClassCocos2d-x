@@ -46,6 +46,7 @@ public:
     CCLabelTTF* setHP2(const char* detail);
 private:
     static BattleScene* s_BattleScene;
+    int battleEnd;
 };
 
 #endif /* defined(__ClassCocos2d_x__BattleScene__) */
