@@ -35,7 +35,10 @@ public:
     CCLabelTTF* skillDetail2;
     CCLabelTTF* setSkillDetail1(const char* detail);
     CCLabelTTF* setSkillDetail2(const char* detail);
-
+    
+    CCLabelTTF* battleResult;
+    CCLabelTTF* setBattleResult(const char* winner ,const char* loser);
+    CCLabelTTF* setBattleResult();
     
     CCLabelTTF* HP1;
     CCLabelTTF* HP2;

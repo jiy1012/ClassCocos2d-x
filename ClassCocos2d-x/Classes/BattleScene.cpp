@@ -30,6 +30,7 @@ BattleScene::BattleScene()
 {
     skillDetail1 = NULL;
     skillDetail2 = NULL;
+    battleResult = NULL;
     HP1 = NULL;
     HP2 = NULL;
 
@@ -57,10 +58,18 @@ CCScene* BattleScene::ShowHero(HeroStruct* hero)
     CCMenuItemImage* Wimg = CCMenuItemImage::create("Wimg.png", "Wimg.png", this, menu_selector(BattleScene::clickSkill));
     CCMenuItemImage* Eimg = CCMenuItemImage::create("Eimg.png", "Eimg.png", this, menu_selector(BattleScene::clickSkill));
     CCMenuItemImage* Rimg = CCMenuItemImage::create("Rimg.png", "Rimg.png", this, menu_selector(BattleScene::clickSkill));
-    Qimg->setPosition(ccp(-heroSize.width/2+60, 0));
-    Wimg->setPosition(ccp(-heroSize.width/2+120, 0));
-    Eimg->setPosition(ccp(-heroSize.width/2+180, 0));
-    Rimg->setPosition(ccp(-heroSize.width/2+240, 0));
+    
+    float w = WIN_WIDTH/12;
+    float scale = w/Qimg->getContentSize().width;
+    Qimg->setScale(scale);
+    Wimg->setScale(scale);
+    Eimg->setScale(scale);
+    Rimg->setScale(scale);
+    
+    Qimg->setPosition(ccp(-heroSize.width/2+w*6/5, 0));
+    Wimg->setPosition(ccp(-heroSize.width/2+w*6/5*2, 0));
+    Eimg->setPosition(ccp(-heroSize.width/2+w*6/5*3, 0));
+    Rimg->setPosition(ccp(-heroSize.width/2+w*6/5*4, 0));
     
     int tagidx = hero->id*10;
     Qimg->setTag(tagidx+1);
@@ -100,6 +109,25 @@ CCLabelTTF* BattleScene::setSkillDetail2(const char* detail)
         skillDetail2->setString(detail);
     }
     return skillDetail2;
+}
+
+CCLabelTTF* BattleScene::setBattleResult()
+{
+    if (battleResult == NULL) {
+        battleResult = CCLabelTTF::create("", "", 30);
+        battleResult->setPosition(ccp(WIN_WIDTH/2, WIN_HEIGHT/8));
+    }
+    return battleResult;
+}
+
+CCLabelTTF* BattleScene::setBattleResult(const char* winner ,const char* loser)
+{
+    if (battleResult != NULL) {
+        CCString* result = CCString::createWithFormat("恭喜 %s 战胜了 %s，获得了战斗的胜利！",winner,loser);
+        CCLOG("%s",result->getCString());
+        battleResult->setString(result->getCString());
+    }
+    return battleResult;
 }
 
 CCLabelTTF* BattleScene::setHP1(const char* detail)
@@ -151,6 +179,9 @@ void BattleScene::clickSkill(CCObject* pSender)
         setSkillDetail1(Detail);
         int nowHp2 = ATOI(HP2->getString()) - minus>0?ATOI(HP2->getString()) - minus:0;
         setHP2(ITOA(nowHp2));
+        if (nowHp2 <= 0) {
+            setBattleResult(h1->valueForKey("name")->getCString(), h2->valueForKey("name")->getCString());
+        }
     }else if(skillDetail2->getTag() == heroId){
         int hero1 = skillDetail1->getTag();
         CCDictionary* h2 = (CCDictionary*) groupHero->objectForKey(hero1);
@@ -159,7 +190,10 @@ void BattleScene::clickSkill(CCObject* pSender)
         setSkillDetail2(Detail);
         int nowHp1 = ATOI(HP1->getString()) - minus>0?ATOI(HP1->getString()) - minus:0;
         setHP1(ITOA(nowHp1));
+        if (nowHp1 <= 0) {
+            setBattleResult(h2->valueForKey("name")->getCString(), h1->valueForKey("name")->getCString());
+        }
     }
-    
+
     CCLOG("click skill ok %d %s %s %d %d",heroId,skill,Detail,skillDetail1->getTag(),skillDetail2->getTag());
 }

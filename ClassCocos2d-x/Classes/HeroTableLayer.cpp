@@ -137,6 +137,8 @@ void HeroTableLayer::startPK(CCObject* pSender)
     CCLabelTTF* hp2 = BattleScene::shared()->setHP2(ITOA(heroStruct2->HP));
     hp2->setTag(hero2*10);
     
+    CCLabelTTF* res = BattleScene::shared()->setBattleResult();
+    
     CCMenuItemImage* backButton = CCMenuItemImage::create("backButton.png", "backButtonSelected.png", pkScene, menu_selector(HeroTableLayer::backClick));
     CCMenu* pMenu = CCMenu::create(backButton,NULL);
     pMenu->setPosition(ccp(backButton->getContentSize().width, backButton->getContentSize().height/2));
@@ -148,6 +150,7 @@ void HeroTableLayer::startPK(CCObject* pSender)
     pkScene->addChild(pMenu);
     pkScene->addChild(skill1);
     pkScene->addChild(skill2);
+    pkScene->addChild(res);
     pkScene->addChild(hp1);
     pkScene->addChild(hp2);
     CCLOG("%s   pk    %s",heroStruct1->name.c_str(),heroStruct2->name.c_str());

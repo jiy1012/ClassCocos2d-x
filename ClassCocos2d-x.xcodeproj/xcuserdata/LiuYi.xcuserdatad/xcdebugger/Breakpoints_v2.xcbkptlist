@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ClassCocos2d-x/Classes/BattleScene.cpp"
-            timestampString = "424097072.749512"
+            timestampString = "424951738.780776"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "167"
-            endingLineNumber = "167">
+            startingLineNumber = "201"
+            endingLineNumber = "201">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -24,11 +24,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ClassCocos2d-x/Classes/BattleScene.cpp"
-            timestampString = "424097072.749512"
+            timestampString = "424951738.780776"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "162"
-            endingLineNumber = "162"
+            startingLineNumber = "196"
+            endingLineNumber = "196"
             landmarkName = "BattleScene::clickSkill(CCObject* pSender)"
             landmarkType = "5">
          </BreakpointContent>
@@ -40,11 +40,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ClassCocos2d-x/Classes/BattleScene.cpp"
-            timestampString = "424097072.749512"
+            timestampString = "424951738.780776"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "145"
-            endingLineNumber = "145"
+            startingLineNumber = "173"
+            endingLineNumber = "173"
             landmarkName = "BattleScene::clickSkill(CCObject* pSender)"
             landmarkType = "5">
          </BreakpointContent>

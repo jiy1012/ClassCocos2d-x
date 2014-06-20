@@ -117,13 +117,13 @@ void HelloWorld::titleDisplayCallback(CCNode* pNode)
     CCMenu* pMenu = CCMenu::create(pStratButton,pExitButton,pCheckVersion,NULL);
     pMenu->setPosition( CCPointZero );
     this->addChild(pMenu, 1);
-//    
-//    CCLabelTTF* pLabel = CCLabelTTF::create("大战", "Thonburi", 50);
-//    pLabel->setPosition( ccp(winSize.width/2, winSize.height*3/4) );
-//    this->addChild(pLabel, 2);
     
-//    CCSprite* DWSHeroTitle = DWS->DWSTitleHeroDisplay(winSize);
-//    this->addChild(DWSHeroTitle,2);
+    CCLabelTTF* pLabel = CCLabelTTF::create("大战", "Thonburi", 50);
+    pLabel->setPosition( ccp(winSize.width/2, winSize.height*3/4) );
+    this->addChild(pLabel, 2);
+    
+    CCSprite* DWSHeroTitle = DWSScene::shared()->DWSTitleHeroDisplay(winSize);
+    this->addChild(DWSHeroTitle,2);
     
     std::string labelV = "当前版本："+version;
     CCLabelTTF* pLabelV = CCLabelTTF::create(labelV.c_str(), "Thonburi", 25);
