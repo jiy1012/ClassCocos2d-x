@@ -105,6 +105,7 @@ CCLabelTTF* BattleScene::setSkillDetail2(const char* detail)
 {
     if (skillDetail2 == NULL && battleEnd != 1) {
         skillDetail2 = CCLabelTTF::create(detail, "", 30);
+        skillDetail2->setPosition(ccp(WIN_WIDTH/2+100, WIN_HEIGHT/4));
     }else if(battleEnd != 1){
         skillDetail2->setString(detail);
     }
