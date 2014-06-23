@@ -92,10 +92,13 @@ CCScene* BattleScene::ShowHero(HeroStruct* hero)
 
 CCLabelTTF* BattleScene::setSkillDetail1(const char* detail)
 {
+    if (battleEnd == 1) {
+        return skillDetail1;
+    }
     if (skillDetail1 == NULL) {
         skillDetail1 = CCLabelTTF::create(detail, "", 30);
         skillDetail1->setPosition(ccp(100, WIN_HEIGHT/4));
-    }else if(battleEnd != 1){
+    }else{
         skillDetail1->setString(detail);
     }
     return skillDetail1;
@@ -103,10 +106,13 @@ CCLabelTTF* BattleScene::setSkillDetail1(const char* detail)
 
 CCLabelTTF* BattleScene::setSkillDetail2(const char* detail)
 {
-    if (skillDetail2 == NULL && battleEnd != 1) {
+    if (battleEnd == 1) {
+        return skillDetail2;
+    }
+    if (skillDetail2 == NULL) {
         skillDetail2 = CCLabelTTF::create(detail, "", 30);
         skillDetail2->setPosition(ccp(WIN_WIDTH/2+100, WIN_HEIGHT/4));
-    }else if(battleEnd != 1){
+    }else{
         skillDetail2->setString(detail);
     }
     return skillDetail2;
@@ -114,6 +120,10 @@ CCLabelTTF* BattleScene::setSkillDetail2(const char* detail)
 
 CCLabelTTF* BattleScene::setBattleResult()
 {
+    if (battleEnd == 1) {
+        return battleResult;
+    }
+    
     if (battleResult == NULL) {
         battleResult = CCLabelTTF::create("", "", 30);
         battleResult->setPosition(ccp(WIN_WIDTH/2, WIN_HEIGHT/8));
@@ -123,7 +133,7 @@ CCLabelTTF* BattleScene::setBattleResult()
 
 CCLabelTTF* BattleScene::setBattleResult(const char* winner ,const char* loser)
 {
-    if (battleResult != NULL && battleEnd != 1) {
+    if (battleResult != NULL) {
         CCString* result = CCString::createWithFormat("恭喜 %s 战胜了 %s，获得了战斗的胜利！",winner,loser);
         CCLOG("%s",result->getCString());
         battleResult->setString(result->getCString());
@@ -134,10 +144,13 @@ CCLabelTTF* BattleScene::setBattleResult(const char* winner ,const char* loser)
 
 CCLabelTTF* BattleScene::setHP1(const char* detail)
 {
+    if (battleEnd == 1) {
+        return HP1;
+    }
     if (HP1 == NULL) {
         HP1 = CCLabelTTF::create(detail, "", 50);
         HP1->setPosition(ccp(WIN_WIDTH/2/2+100, WIN_HEIGHT*8/10));
-    }else if(battleEnd != 1){
+    }else{
         HP1->setString(detail);
     }
     return HP1;
@@ -145,10 +158,13 @@ CCLabelTTF* BattleScene::setHP1(const char* detail)
 
 CCLabelTTF* BattleScene::setHP2(const char* detail)
 {
+    if (battleEnd == 1) {
+        return HP2;
+    }
     if (HP2 == NULL) {
         HP2 = CCLabelTTF::create(detail, "", 50);
         HP2->setPosition(ccp(WIN_WIDTH/2*3/2+100, WIN_HEIGHT*8/10));
-    }else if(battleEnd != 1){
+    }else{
         HP2->setString(detail);
     }
     return HP2;
